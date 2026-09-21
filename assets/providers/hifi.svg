@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 430" role="img" aria-labelledby="title desc">
+  <title id="title">Indosat HiFi</title>
+  <desc id="desc">Indosat HiFi brand mark in gray, magenta and yellow.</desc>
+  <rect width="520" height="430" fill="none"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="260" y="92" text-anchor="middle" font-size="72" fill="#444444" letter-spacing="-4">indosat</text>
+  </g>
+  <g transform="translate(76 126)">
+    <path fill="#D5007F" d="M0 194V72c0-25 20-45 45-45s45 20 45 45v34h19c17 0 31-14 31-31V45c0-25 20-45 45-45s45 20 45 45v149c0 25-20 45-45 45s-45-20-45-45v-31H90v31c0 25-20 45-45 45S0 219 0 194Z"/>
+    <path fill="#FFB81C" d="M250 194V45c0-25 20-45 45-45s45 20 45 45v57h19c17 0 31-14 31-31V45c0-25 20-45 45-45s45 20 45 45v68c0 24-19 43-43 43h-57v38c0 25-20 45-45 45s-45-20-45-45Z"/>
+    <path fill="#FFB81C" d="M370 194v-46h44c24 0 43 19 43 43v3c0 25-20 45-45 45s-42-20-42-45Z"/>
+  </g>
+</svg>

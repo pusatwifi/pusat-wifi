@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" role="img" aria-labelledby="title desc">
+  <title id="title">CBN Fiber</title>
+  <desc id="desc">CBN Fiber brand mark in blue, dark gray and light blue.</desc>
+  <rect width="760" height="250" fill="none"/>
+  <g transform="translate(20 42)">
+    <circle cx="52" cy="20" r="15" fill="#1685C7"/>
+    <path fill="#1685C7" d="M42 48c-23 8-38 30-38 55 0 36 29 65 65 65 20 0 38-9 50-24l-24-22c-7 9-16 14-27 14-19 0-34-15-34-34 0-13 7-24 18-29l-10-25Z"/>
+    <path fill="#1685C7" d="M67 80c-10 4-17 13-17 24 0 15 12 27 27 27 11 0 20-6 25-15l-23-13c-2 3-5 5-9 5-5 0-9-4-9-9 0-4 2-7 6-9l0-10Z"/>
+  </g>
+  <text x="190" y="170" font-family="Arial, Helvetica, sans-serif" font-size="145" font-weight="700" letter-spacing="-7" fill="#3D3D42">CBN</text>
+  <text x="505" y="170" font-family="Arial, Helvetica, sans-serif" font-size="105" font-weight="400" letter-spacing="-4" fill="#55B9E8">fiber</text>
+</svg>

@@ -1,0 +1,197 @@
+/* ========================================
+   PUSAT WIFI — Base Styles
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111827;
+    line-height: 1.6;
+}
+
+header {
+    padding: 60px 20px 40px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header p {
+    margin: 10px 0 0;
+    color: #64748b;
+    font-size: 18px;
+}
+
+/* ========================================
+   Tombol WhatsApp
+   ======================================== */
+.header-cta {
+    margin-top: 24px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 28px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128c7e;
+}
+
+.btn-whatsapp svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ========================================
+   Main Content & Grid
+   ======================================== */
+main {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+section h2 {
+    margin: 0 0 24px;
+    font-size: 28px;
+}
+
+#provider-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* ========================================
+   Provider Cards
+   ======================================== */
+.provider-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    text-align: left;
+    transition: box-shadow 0.2s ease;
+}
+
+.provider-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.provider-logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.provider-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.provider-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #111827;
+}
+
+.provider-info p {
+    margin: 4px 0 16px;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.provider-link {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+.provider-link:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   Available Slots
+   ======================================== */
+.available-slot {
+    border: 1px dashed #cbd5e1;
+    background-color: #f8fafc;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.available-slot:hover {
+    box-shadow: none;
+}
+
+.slot-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.slot-content span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #475569;
+}
+
+.slot-content small {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+footer {
+    margin-top: 80px;
+    padding: 30px 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    header {
+        padding-top: 80px;
+    }
+
+    #provider-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
