@@ -5,323 +5,240 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
-
-  <title>PUSAT WIFI — Pilihan Provider Internet Indonesia</title>
 
   <meta
     name="description"
-    content="PUSAT WIFI membantu Anda menemukan pilihan provider internet dan mengecek coverage pemasangan melalui WhatsApp."
+    content="PUSAT WIFI adalah pusat informasi dan ruang provider internet terbatas untuk membantu Anda menemukan pilihan jaringan internet dan melakukan pengecekan coverage."
   >
 
-  <link
-    rel="canonical"
-    href="https://pusatwifi.id/"
-  >
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#07111f">
+  <meta name="color-scheme" content="dark light">
 
-  <meta
-    name="robots"
-    content="index, follow"
-  >
+  <link rel="canonical" href="https://pusatwifi.id/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:title"
-    content="PUSAT WIFI — Pilihan Provider Internet Indonesia"
-  >
-
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PUSAT WIFI — 10 Slot Provider Internet">
   <meta
     property="og:description"
-    content="Temukan provider internet dalam satu tempat dan cek coverage melalui WhatsApp."
+    content="Temukan pilihan provider internet dalam satu pusat informasi."
   >
+  <meta property="og:url" content="https://pusatwifi.id/">
 
-  <meta
-    property="og:url"
-    content="https://pusatwifi.id/"
-  >
+  <title>PUSAT WIFI — 10 Slot Provider Internet</title>
 
-  <meta
-    property="og:site_name"
-    content="PUSAT WIFI"
-  >
-
-  <link
-    rel="icon"
-    href="/favicon.svg"
-    type="image/svg+xml"
-  >
-
-  <link
-    rel="stylesheet"
-    href="/css/style.css"
-  >
-
-  <style>
-    /*
-      ==================================================
-      PUSAT WIFI — Provider Wall Override
-      ==================================================
-      Hanya memastikan Provider Wall memiliki tepat
-      10 slot dan tampil modern/responsive.
-    */
-
-    .provider-wall {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .provider-card,
-    .available-slot {
-      min-width: 0;
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .available-slot {
-      min-height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      border: 1px solid rgba(37, 99, 235, 0.16);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(248, 250, 252, 1),
-          rgba(239, 246, 255, 0.82)
-        );
-    }
-
-    .available-slot-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .available-slot-label {
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      color: #0f172a;
-    }
-
-    .available-slot-text {
-      margin: 0;
-      font-size: 12px;
-      color: #64748b;
-    }
-
-    .provider-card {
-      min-height: 180px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .provider-logo {
-      width: 100%;
-      height: 72px;
-      object-fit: contain;
-      object-position: left center;
-      margin-bottom: 12px;
-    }
-
-    .provider-card-content {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .provider-name {
-      margin: 0 0 5px;
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .provider-status {
-      margin: 0 0 14px;
-      font-size: 13px;
-      color: #64748b;
-    }
-
-    .provider-actions {
-      margin-top: auto;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .provider-actions a {
-      text-decoration: none;
-    }
-
-    .slot-counter {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 0 0 28px;
-    }
-
-    .slot-counter-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      font-size: 13px;
-      color: #475569;
-    }
-
-    .slot-counter-number {
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    @media (max-width: 900px) {
-      .provider-wall {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 560px) {
-      .provider-wall {
-        grid-template-columns: 1fr;
-      }
-
-      .provider-card,
-      .available-slot {
-        min-height: 170px;
-      }
-
-      .provider-logo {
-        height: 64px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-        animation: none !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" defer></script>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "Organization",
     "name": "PUSAT WIFI",
     "url": "https://pusatwifi.id/",
-    "description": "PUSAT WIFI membantu menemukan pilihan provider internet dan menghubungkan calon pelanggan untuk pengecekan coverage."
+    "email": "pusatwifiindonesia@gmail.com",
+    "telephone": "+6281214141914"
   }
   </script>
 </head>
 
 <body>
 
-  <a
-    href="#main-content"
-    class="skip-link"
-  >
-    Lewati ke konten utama
-  </a>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
 
   <header class="site-header">
-    <div class="container">
+    <div class="container header-inner">
 
-      <div class="brand">
-        <a
-          href="/"
-          aria-label="PUSAT WIFI"
-        >
-          PUSAT WIFI
-        </a>
-      </div>
+      <a class="brand" href="/" aria-label="PUSAT WIFI Beranda">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" role="img">
+            <path d="M8 15.5C14.8 9.2 25.2 9.2 32 15.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"/>
+            <path d="M12.5 20.5C17 16.4 23 16.4 27.5 20.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"/>
+            <path d="M17.5 25.5C20 23.4 20 23.4 22.5 25.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"/>
+            <circle cx="20" cy="30.5" r="2.2" fill="currentColor"/>
+          </svg>
+        </span>
 
-      <nav
-        class="site-nav"
-        aria-label="Navigasi utama"
+        <span class="brand-copy">
+          <strong>PUSAT WIFI</strong>
+          <small>Pusat Informasi Internet</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Buka menu"
       >
-        <a href="#providers">
-          Provider
-        </a>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <a href="#cara-kerja">
-          Cara Kerja
-        </a>
-
-        <a href="#partner">
-          Isi Slot
-        </a>
-
-        <a
-          href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage."
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WhatsApp
-        </a>
+      <nav class="site-nav" id="site-nav" aria-label="Navigasi utama">
+        <a href="#provider">Provider</a>
+        <a href="#cara-kerja">Cara Kerja</a>
+        <a href="#slot">Slot Provider</a>
+        <a href="#mitra">Mitra</a>
+        <a class="nav-cta" href="#kontak">Hubungi Kami</a>
       </nav>
 
     </div>
   </header>
 
-
   <main id="main-content">
 
-    <!-- ==========================================
-         HERO
-         ========================================== -->
-
     <section class="hero">
-      <div class="container">
+      <div class="hero-grid container">
 
-        <p class="eyebrow">
-          PILIHAN INTERNET INDONESIA
-        </p>
+        <div class="hero-copy">
 
-        <h1>
-          Temukan Provider Internet
-          <span>Dalam Satu Tempat.</span>
-        </h1>
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            PUSAT INFORMASI INTERNET
+          </div>
 
-        <p class="hero-description">
-          Pilih provider yang tersedia, lalu hubungi PUSAT WIFI
-          untuk membantu proses pengecekan coverage berdasarkan
-          lokasi pemasangan.
-        </p>
+          <h1>
+            Temukan Provider Internet
+            <span>Dalam Satu Tempat.</span>
+          </h1>
 
-        <div class="hero-actions">
+          <p class="hero-description">
+            Satu pintu untuk menemukan pilihan jaringan internet,
+            mengecek ketersediaan coverage, dan mendapatkan pendampingan
+            proses pemasangan tanpa ribet.
+          </p>
 
-          <a
-            class="button button-primary"
-            href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20internet."
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Cek coverage melalui WhatsApp"
-          >
-            Cek Coverage via WhatsApp
-          </a>
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20ketersediaan%20internet%20di%20lokasi%20saya."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Cek Coverage via WhatsApp
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h13M13 6l6 6-6 6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </a>
 
-          <a
-            class="button button-secondary"
-            href="#providers"
-          >
-            Lihat 10 Slot Provider
-          </a>
+            <a class="button button-secondary" href="#provider">
+              Lihat 10 Slot Provider
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <span>10 slot terbatas</span>
+            <span>•</span>
+            <span>Multi-provider</span>
+            <span>•</span>
+            <span>Berbasis lokasi</span>
+          </div>
+
+        </div>
+
+        <div class="hero-visual" aria-label="Status slot provider">
+
+          <div class="visual-card">
+
+            <div class="visual-top">
+              <span>PROVIDER WALL</span>
+              <span class="live-pill">
+                <span></span>
+                LIVE
+              </span>
+            </div>
+
+            <div class="visual-title">
+              <strong>10</strong>
+              <div>
+                <span>RUANG PROVIDER</span>
+                <small>Terbatas untuk 10 brand</small>
+              </div>
+            </div>
+
+            <div class="mini-grid">
+
+              <div class="mini-slot active">
+                <small>01</small>
+                <strong>HiFi</strong>
+              </div>
+
+              <div class="mini-slot active">
+                <small>02</small>
+                <strong>CBN</strong>
+              </div>
+
+              <div class="mini-slot">
+                <small>03</small>
+                <strong>AVAILABLE</strong>
+              </div>
+
+              <div class="mini-slot">
+                <small>04</small>
+                <strong>AVAILABLE</strong>
+              </div>
+
+              <div class="mini-slot">
+                <small>05</small>
+                <strong>AVAILABLE</strong>
+              </div>
+
+              <div class="mini-slot">
+                <small>06</small>
+                <strong>AVAILABLE</strong>
+              </div>
+
+              <div class="mini-slot">
+                <small>07</small>
+                <strong>AVAILABLE</strong>
+              </div>
+
+              <div class="mini-slot">
+                <small>08</small>
+                <strong>AVAILABLE</strong>
+              </div>
+
+              <div class="mini-slot">
+                <small>09</small>
+                <strong>AVAILABLE</strong>
+              </div>
+
+              <div class="mini-slot">
+                <small>10</small>
+                <strong>AVAILABLE</strong>
+              </div>
+
+            </div>
+
+            <div class="visual-footer">
+              <span>2 / 10 terisi</span>
+              <span>8 slot tersedia</span>
+            </div>
+
+          </div>
 
         </div>
 
@@ -329,511 +246,618 @@
     </section>
 
 
-    <!-- ==========================================
-         PROVIDER WALL
-         TEPAT 10 SLOT
-         ========================================== -->
-
-    <section
-      id="providers"
-      class="providers-section"
-    >
+    <section class="section provider-section" id="provider">
 
       <div class="container">
 
         <div class="section-heading">
-
-          <p class="eyebrow">
-            PROVIDER WALL
-          </p>
-
-          <h2>
-            Pilihan Provider Internet
-          </h2>
+          <div>
+            <span class="section-kicker">THE PROVIDER WALL</span>
+            <h2>10 Slot. Tidak Lebih.</h2>
+          </div>
 
           <p>
-            PUSAT WIFI menyediakan 10 slot provider.
-            Slot yang belum terisi tetap tersedia untuk provider
-            yang bergabung di masa mendatang.
+            PUSAT WIFI menyediakan ruang terbatas untuk provider internet.
+            Setiap slot dapat menjadi pintu masuk pelanggan baru.
           </p>
-
         </div>
 
 
-        <div
-          class="slot-counter"
-          aria-label="Status slot provider"
-        >
-
-          <div class="slot-counter-item">
-            <span class="slot-counter-number">
-              10
-            </span>
-            <span>
-              Total Slot
-            </span>
+        <div class="slot-summary">
+          <div class="slot-summary-main">
+            <strong>2</strong>
+            <span>slot aktif</span>
           </div>
 
-          <div class="slot-counter-item">
-            <span class="slot-counter-number">
-              2
-            </span>
-            <span>
-              Active
-            </span>
+          <div class="slot-progress">
+            <div class="progress-track">
+              <span style="width:20%"></span>
+            </div>
+            <div class="progress-label">
+              <span>2 / 10 terisi</span>
+              <span>8 tersedia</span>
+            </div>
           </div>
-
-          <div class="slot-counter-item">
-            <span class="slot-counter-number">
-              8
-            </span>
-            <span>
-              Available
-            </span>
-          </div>
-
         </div>
 
 
-        <div class="provider-wall">
+        <div class="provider-wall" id="slot">
 
-          <!-- SLOT 01 — HIFI -->
+          <article class="provider-slot provider-active">
 
-          <article class="provider-card">
+            <div class="slot-number">01</div>
 
-            <div class="provider-card-content">
+            <div class="provider-content">
 
-              <img
-                class="provider-logo"
-                src="/assets/providers/hifi.svg"
-                alt="Logo HiFi"
-                width="180"
-                height="72"
-              >
-
-              <h3 class="provider-name">
-                HiFi
-              </h3>
-
-              <p class="provider-status">
-                Provider Internet
-              </p>
-
-              <div class="provider-actions">
-
-                <a
-                  class="button button-small button-primary"
-                  href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20HiFi."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Cek coverage HiFi melalui WhatsApp"
+              <div class="provider-logo-wrap">
+                <img
+                  src="/assets/providers/hifi.svg"
+                  alt="HiFi"
+                  width="150"
+                  height="70"
+                  loading="lazy"
+                  decoding="async"
                 >
-                  Cek Coverage
-                </a>
+              </div>
 
+              <div class="provider-info">
+                <div class="provider-badge">
+                  <span></span>
+                  PROVIDER AKTIF
+                </div>
+
+                <h3>HiFi</h3>
+
+                <p>
+                  Pilihan jaringan internet yang dapat dicek
+                  berdasarkan lokasi pemasangan.
+                </p>
+
+                <div class="provider-actions">
+
+                  <a
+                    class="small-button primary"
+                    href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20HiFi%20di%20lokasi%20saya."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Cek Coverage
+                  </a>
+
+                  <a
+                    class="small-button secondary"
+                    href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20meminta%20informasi%20paket%20dan%20pricelist%20HiFi."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Minta Pricelist
+                  </a>
+
+                </div>
               </div>
 
             </div>
 
+            <div class="slot-status">
+              <span class="active-indicator"></span>
+              ACTIVE
+            </div>
+
           </article>
 
 
-          <!-- SLOT 02 — CBN -->
+          <article class="provider-slot provider-active">
 
-          <article class="provider-card">
+            <div class="slot-number">02</div>
 
-            <div class="provider-card-content">
+            <div class="provider-content">
 
-              <img
-                class="provider-logo"
-                src="/assets/providers/cbn.svg"
-                alt="Logo CBN"
-                width="180"
-                height="72"
-              >
-
-              <h3 class="provider-name">
-                CBN
-              </h3>
-
-              <p class="provider-status">
-                Provider Internet
-              </p>
-
-              <div class="provider-actions">
-
-                <a
-                  class="button button-small button-primary"
-                  href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20CBN."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Cek coverage CBN melalui WhatsApp"
+              <div class="provider-logo-wrap">
+                <img
+                  src="/assets/providers/cbn.svg"
+                  alt="CBN"
+                  width="150"
+                  height="70"
+                  loading="lazy"
+                  decoding="async"
                 >
-                  Cek Coverage
-                </a>
+              </div>
 
+              <div class="provider-info">
+                <div class="provider-badge">
+                  <span></span>
+                  PROVIDER AKTIF
+                </div>
+
+                <h3>CBN</h3>
+
+                <p>
+                  Pilihan jaringan internet yang dapat dicek
+                  berdasarkan lokasi pemasangan.
+                </p>
+
+                <div class="provider-actions">
+
+                  <a
+                    class="small-button primary"
+                    href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20CBN%20di%20lokasi%20saya."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Cek Coverage
+                  </a>
+
+                  <a
+                    class="small-button secondary"
+                    href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20meminta%20informasi%20paket%20dan%20pricelist%20CBN."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Minta Pricelist
+                  </a>
+
+                </div>
               </div>
 
             </div>
 
-          </article>
-
-
-          <!-- SLOT 03 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 03 tersedia"
-          >
-
-            <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+            <div class="slot-status">
+              <span class="active-indicator"></span>
+              ACTIVE
             </div>
 
           </article>
 
 
-          <!-- SLOT 04 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 04 tersedia"
-          >
-
-            <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+          <article class="provider-slot provider-available">
+            <div class="slot-number">03</div>
+            <div class="available-content">
+              <span class="available-icon">+</span>
+              <span class="available-label">SLOT TERSEDIA</span>
+              <strong>03</strong>
+              <small>Ruang provider berikutnya</small>
             </div>
-
           </article>
 
 
-          <!-- SLOT 05 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 05 tersedia"
-          >
-
-            <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+          <article class="provider-slot provider-available">
+            <div class="slot-number">04</div>
+            <div class="available-content">
+              <span class="available-icon">+</span>
+              <span class="available-label">SLOT TERSEDIA</span>
+              <strong>04</strong>
+              <small>Ruang provider berikutnya</small>
             </div>
-
           </article>
 
 
-          <!-- SLOT 06 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 06 tersedia"
-          >
-
-            <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+          <article class="provider-slot provider-available">
+            <div class="slot-number">05</div>
+            <div class="available-content">
+              <span class="available-icon">+</span>
+              <span class="available-label">SLOT TERSEDIA</span>
+              <strong>05</strong>
+              <small>Ruang provider berikutnya</small>
             </div>
-
           </article>
 
 
-          <!-- SLOT 07 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 07 tersedia"
-          >
-
-            <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+          <article class="provider-slot provider-available">
+            <div class="slot-number">06</div>
+            <div class="available-content">
+              <span class="available-icon">+</span>
+              <span class="available-label">SLOT TERSEDIA</span>
+              <strong>06</strong>
+              <small>Ruang provider berikutnya</small>
             </div>
-
           </article>
 
 
-          <!-- SLOT 08 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 08 tersedia"
-          >
-
-            <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+          <article class="provider-slot provider-available">
+            <div class="slot-number">07</div>
+            <div class="available-content">
+              <span class="available-icon">+</span>
+              <span class="available-label">SLOT TERSEDIA</span>
+              <strong>07</strong>
+              <small>Ruang provider berikutnya</small>
             </div>
-
           </article>
 
 
-          <!-- SLOT 09 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 09 tersedia"
-          >
-
-            <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+          <article class="provider-slot provider-available">
+            <div class="slot-number">08</div>
+            <div class="available-content">
+              <span class="available-icon">+</span>
+              <span class="available-label">SLOT TERSEDIA</span>
+              <strong>08</strong>
+              <small>Ruang provider berikutnya</small>
             </div>
-
           </article>
 
 
-          <!-- SLOT 10 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 10 tersedia"
-          >
-
-            <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+          <article class="provider-slot provider-available">
+            <div class="slot-number">09</div>
+            <div class="available-content">
+              <span class="available-icon">+</span>
+              <span class="available-label">SLOT TERSEDIA</span>
+              <strong>09</strong>
+              <small>Ruang provider berikutnya</small>
             </div>
+          </article>
 
+
+          <article class="provider-slot provider-available">
+            <div class="slot-number">10</div>
+            <div class="available-content">
+              <span class="available-icon">+</span>
+              <span class="available-label">SLOT TERSEDIA</span>
+              <strong>10</strong>
+              <small>Ruang provider berikutnya</small>
+            </div>
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- ==========================================
-         COVERAGE / CARA KERJA
-         ========================================== -->
-
-    <section
-      id="cara-kerja"
-      class="process-section"
-    >
+    <section class="section process-section" id="cara-kerja">
 
       <div class="container">
 
-        <div class="section-heading">
-
-          <p class="eyebrow">
-            CARA KERJA
-          </p>
-
-          <h2>
-            Sederhana, mulai dari lokasi Anda
-          </h2>
-
+        <div class="section-heading centered">
+          <span class="section-kicker">SIMPLE PROCESS</span>
+          <h2>Dari Pilihan Sampai Terpasang.</h2>
           <p>
-            Ketersediaan internet tetap perlu dicek berdasarkan
-            lokasi pemasangan. Hubungi kami melalui WhatsApp
-            untuk memulai proses.
+            Kami menyederhanakan proses supaya Anda tidak perlu
+            berpindah-pindah mencari informasi.
           </p>
-
         </div>
 
 
         <div class="process-grid">
 
           <article class="process-card">
-
-            <span class="process-number">
-              01
-            </span>
-
-            <h3>
-              Pilih Provider
-            </h3>
-
+            <span class="process-number">01</span>
+            <div class="process-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"/>
+                <path d="M12 8v4l3 2"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Pilih Provider</h3>
             <p>
-              Lihat provider yang tersedia di PUSAT WIFI.
+              Tentukan provider yang ingin Anda cek dari slot yang tersedia.
             </p>
-
           </article>
 
 
           <article class="process-card">
-
-            <span class="process-number">
-              02
-            </span>
-
-            <h3>
-              Kirim Data
-            </h3>
-
+            <span class="process-number">02</span>
+            <div class="process-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 4h12v16H6z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"/>
+                <path d="M9 8h6M9 12h6M9 16h4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Kirim Data</h3>
             <p>
-              Hubungi kami melalui WhatsApp untuk memulai
-              proses pengecekan.
+              Kirim alamat atau share location melalui kanal resmi.
+              Dokumen hanya dikirim jika memang diperlukan.
             </p>
-
           </article>
 
 
           <article class="process-card">
-
-            <span class="process-number">
-              03
-            </span>
-
-            <h3>
-              Cek Coverage
-            </h3>
-
+            <span class="process-number">03</span>
+            <div class="process-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12a8 8 0 1 0 16 0"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"/>
+                <path d="M4 12l3-3M4 12l3 3"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Cek Coverage</h3>
             <p>
-              Coverage diperiksa berdasarkan lokasi pemasangan.
+              Tim membantu meneruskan pengecekan ketersediaan jaringan
+              berdasarkan titik lokasi.
             </p>
-
           </article>
 
 
           <article class="process-card">
-
-            <span class="process-number">
-              04
-            </span>
-
-            <h3>
-              Pemasangan
-            </h3>
-
+            <span class="process-number">04</span>
+            <div class="process-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12l4 4L19 6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Pemasangan</h3>
             <p>
-              Jika tersedia, proses selanjutnya mengikuti
-              ketentuan provider.
+              Jika tersedia dan memenuhi persyaratan provider,
+              proses pemasangan dilanjutkan secara resmi.
             </p>
-
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- ==========================================
-         PARTNER / SLOT
-         ========================================== -->
-
-    <section
-      id="partner"
-      class="partner-section"
-    >
+    <section class="section principle-section">
 
       <div class="container">
 
-        <div class="partner-box">
+        <div class="principle-box">
 
-          <p class="eyebrow">
-            PROVIDER & ADVERTISER
-          </p>
+          <div class="principle-content">
+            <span class="section-kicker">THE IDEA</span>
 
-          <h2>
-            Ingin Mengisi Salah Satu Slot?
-          </h2>
+            <h2>
+              Sedikit Slot.
+              <span>Lebih Bernilai.</span>
+            </h2>
 
-          <p>
-            PUSAT WIFI memiliki jumlah slot provider yang terbatas.
-            Jika Anda merupakan provider atau pihak yang ingin
-            mengetahui ketersediaan slot, silakan hubungi kami.
-          </p>
+            <p>
+              PUSAT WIFI tidak dibuat untuk menampilkan puluhan provider
+              tanpa arah. Kami membangun ruang yang terbatas agar setiap
+              provider yang tampil memiliki posisi yang jelas di dalam
+              ekosistem.
+            </p>
 
-          <a
-            class="button button-primary"
-            href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20menanyakan%20slot%20provider."
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Tanyakan slot provider melalui WhatsApp"
-          >
-            Tanyakan Slot Provider
-          </a>
+            <div class="principle-points">
+
+              <div>
+                <strong>10</strong>
+                <span>Total slot</span>
+              </div>
+
+              <div>
+                <strong>02</strong>
+                <span>Saat ini aktif</span>
+              </div>
+
+              <div>
+                <strong>08</strong>
+                <span>Masih tersedia</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="principle-visual">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="core">
+              <span>10</span>
+              <small>SLOT</small>
+            </div>
+
+          </div>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- ==========================================
-         FINAL CTA
-         ========================================== -->
-
-    <section class="final-cta">
+    <section class="section partner-section" id="mitra">
 
       <div class="container">
 
-        <h2>
-          Butuh bantuan cek coverage?
-        </h2>
+        <div class="partner-card">
 
-        <p>
-          Hubungi PUSAT WIFI melalui WhatsApp.
-        </p>
+          <div class="partner-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="7" y="7" width="34" height="34" rx="8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"/>
+              <path d="M16 24h16M24 16v16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"/>
+            </svg>
+          </div>
 
-        <a
-          class="button button-primary"
-          href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20internet."
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hubungi via WhatsApp
-        </a>
+          <div class="partner-copy">
+            <span class="section-kicker">FOR INTERNET PROVIDERS</span>
+
+            <h2>Ingin Mengisi Salah Satu Slot?</h2>
+
+            <p>
+              PUSAT WIFI membuka ruang terbatas bagi provider internet
+              yang ingin memperkenalkan layanan dan mendapatkan akses
+              ke calon pelanggan melalui platform kami.
+            </p>
+
+            <a
+              class="button button-primary"
+              href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20mewakili%20provider%20internet%20dan%20ingin%20menanyakan%20ketersediaan%20slot%20provider."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tanyakan Slot Provider
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h13M13 6l6 6-6 6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="partner-stat">
+            <strong>08</strong>
+            <span>slot tersedia</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section faq-section">
+
+      <div class="container narrow-container">
+
+        <div class="section-heading centered">
+          <span class="section-kicker">FAQ</span>
+          <h2>Pertanyaan Umum</h2>
+        </div>
+
+
+        <div class="faq-list">
+
+          <details>
+            <summary>
+              Apa itu PUSAT WIFI?
+              <span>+</span>
+            </summary>
+            <p>
+              PUSAT WIFI adalah pusat informasi dan platform yang
+              mempertemukan calon pelanggan dengan pilihan provider
+              internet yang tersedia.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Mengapa hanya ada 10 slot?
+              <span>+</span>
+            </summary>
+            <p>
+              PUSAT WIFI menggunakan konsep ruang provider terbatas.
+              Setiap slot merupakan bagian dari inventory platform
+              dan tidak dibuat tanpa batas.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Apakah slot kosong berarti provider tersebut sudah pasti tersedia di lokasi saya?
+              <span>+</span>
+            </summary>
+            <p>
+              Tidak. Slot menunjukkan ruang provider pada platform,
+              bukan jaminan coverage jaringan. Ketersediaan jaringan
+              tetap harus diperiksa berdasarkan lokasi pemasangan.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Bagaimana cara mengecek coverage?
+              <span>+</span>
+            </summary>
+            <p>
+              Hubungi PUSAT WIFI melalui WhatsApp dan kirimkan
+              lokasi atau share location Anda. Tim akan membantu
+              proses pengecekan sesuai provider yang dipilih.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Bagaimana jika provider melakukan merger atau rebranding?
+              <span>+</span>
+            </summary>
+            <p>
+              Slot merupakan bagian dari inventory PUSAT WIFI.
+              Jika identitas provider berubah, informasi pada slot
+              dapat diperbarui tanpa harus membuat slot baru.
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="contact-section" id="kontak">
+
+      <div class="container">
+
+        <div class="contact-box">
+
+          <div>
+            <span class="section-kicker">CONTACT</span>
+
+            <h2>Mulai dari Lokasi Anda.</h2>
+
+            <p>
+              Ceritakan kebutuhan internet Anda.
+              Kami bantu arahkan ke proses berikutnya.
+            </p>
+          </div>
+
+          <div class="contact-actions">
+
+            <a
+              class="button button-primary"
+              href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20mendapatkan%20informasi%20internet."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="mailto:pusatwifiindonesia@gmail.com?subject=Informasi%20PUSAT%20WIFI"
+            >
+              Email
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -842,70 +866,116 @@
   </main>
 
 
-  <!-- ==========================================
-       FOOTER
-       ========================================== -->
-
   <footer class="site-footer">
 
-    <div class="container">
+    <div class="container footer-main">
 
-      <div class="footer-content">
+      <div class="footer-brand">
 
-        <div>
-          <strong>
-            PUSAT WIFI
-          </strong>
+        <a class="brand" href="/" aria-label="PUSAT WIFI">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40">
+              <path d="M8 15.5C14.8 9.2 25.2 9.2 32 15.5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"/>
+              <path d="M12.5 20.5C17 16.4 23 16.4 27.5 20.5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"/>
+              <path d="M17.5 25.5C20 23.4 20 23.4 22.5 25.5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"/>
+              <circle cx="20" cy="30.5" r="2.2" fill="currentColor"/>
+            </svg>
+          </span>
 
-          <p>
-            Pilihan provider internet Indonesia.
-          </p>
-        </div>
+          <span class="brand-copy">
+            <strong>PUSAT WIFI</strong>
+            <small>Pusat Informasi Internet</small>
+          </span>
+        </a>
 
-
-        <div class="footer-links">
-
-          <a href="#providers">
-            Provider
-          </a>
-
-          <a href="#cara-kerja">
-            Cara Kerja
-          </a>
-
-          <a href="#partner">
-            Isi Slot
-          </a>
-
-          <a
-            href="mailto:pusatwifiindonesia@gmail.com"
-          >
-            Email
-          </a>
-
-        </div>
+        <p>
+          Satu pusat informasi untuk menemukan pilihan
+          internet yang sesuai dengan lokasi Anda.
+        </p>
 
       </div>
 
 
-      <div class="footer-bottom">
+      <div class="footer-links">
 
-        <p>
-          © <span id="current-year">2026</span>
-          PUSAT WIFI. Semua hak dilindungi.
-        </p>
+        <div>
+          <strong>Navigasi</strong>
+          <a href="#provider">Provider</a>
+          <a href="#cara-kerja">Cara Kerja</a>
+          <a href="#mitra">Slot Provider</a>
+          <a href="#kontak">Kontak</a>
+        </div>
+
+        <div>
+          <strong>Kontak</strong>
+          <a
+            href="https://wa.me/6281214141914"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
+
+          <a
+            href="https://t.me/+6281214141914"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Telegram
+          </a>
+
+          <a href="mailto:pusatwifiindonesia@gmail.com">
+            Email
+          </a>
+        </div>
 
       </div>
 
     </div>
 
+
+    <div class="container footer-bottom">
+      <span>© <span id="current-year"></span> PUSAT WIFI. All rights reserved.</span>
+      <span>10 Provider Slots</span>
+    </div>
+
   </footer>
 
 
-  <script
-    src="/js/app.js"
-    defer
-  ></script>
+  <a
+    class="mobile-whatsapp"
+    href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20internet%20di%20lokasi%20saya."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Cek coverage melalui WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.6-4A8 8 0 1 1 20 11.5Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"/>
+      <path d="M9 9.5c.3 1.5 1.3 2.7 2.8 3.5.5.2 1 .4 1.5.4.4 0 .7-.2.9-.5l.5-.7"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"/>
+    </svg>
+
+    <span>Cek Coverage</span>
+  </a>
 
 </body>
 </html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="robots"
+    content="noindex"
+  >
+
+  <title>Halaman Tidak Ditemukan — PUSAT WIFI</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background: #07111f;
+      color: #f4f8ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(53,167,255,.12),
+          transparent 32rem
+        ),
+        #07111f;
+    }
+
+    main {
+      width: min(100%, 560px);
+      text-align: center;
+    }
+
+    .code {
+      margin: 0;
+      color: #35a7ff;
+      font-size: 90px;
+      line-height: .9;
+      font-weight: 850;
+      letter-spacing: -.08em;
+    }
+
+    h1 {
+      margin: 20px 0 10px;
+      font-size: 32px;
+      letter-spacing: -.04em;
+    }
+
+    p {
+      margin: 0 auto 28px;
+      color: #8fa0b6;
+      line-height: 1.7;
+    }
+
+    a {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: 11px;
+      background: #1688e8;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <p class="code">404</p>
+
+    <h1>Halaman tidak ditemukan.</h1>
+
+    <p>
+      Sepertinya halaman yang Anda cari sudah dipindahkan
+      atau alamatnya tidak tersedia.
+    </p>
+
+    <a href="/">
+      Kembali ke PUSAT WIFI
+    </a>
+
+  </main>
+
+</body>
+</html>
