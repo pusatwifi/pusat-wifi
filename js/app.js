@@ -1,91 +1,56 @@
-/* ========================================
-   PUSAT WIFI — Provider Data
-   ======================================== */
+(() => {
+  "use strict";
 
-const providers = [
-    {
-        name: "HiFi",
-        status: "active",
-        logo: "assets/providers/hifi.svg",
-        url: "#"
-    },
-    {
-        name: "CBN",
-        status: "active",
-        logo: "assets/providers/cbn.svg",
-        url: "#"
-    }
-];
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector("#site-nav");
+  const currentYear = document.querySelector("#current-year");
 
-const totalSlots = 20;
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
 
-const providerGrid = document.getElementById("provider-grid");
+  if (menuToggle && siteNav) {
+    const closeMenu = () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Buka menu");
+      siteNav.classList.remove("is-open");
+    };
 
-function createProviderCard(provider) {
-    const card = document.createElement("article");
+    const openMenu = () => {
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Tutup menu");
+      siteNav.classList.add("is-open");
+    };
 
-    card.className = "provider-card";
+    menuToggle.addEventListener("click", () => {
+      const isOpen =
+        menuToggle.getAttribute("aria-expanded") === "true";
 
-    card.innerHTML = `
-        <div class="provider-logo">
-            <img
-                src="${provider.logo}"
-                alt="Logo ${provider.name}"
-                loading="lazy"
-            >
-        </div>
-
-        <div class="provider-info">
-            <h3>${provider.name}</h3>
-            <p>Internet</p>
-        </div>
-
-        <a
-            class="provider-link"
-            href="${provider.url}"
-        >
-            Lihat →
-        </a>
-    `;
-
-    return card;
-}
-
-function createAvailableSlot() {
-    const slot = document.createElement("article");
-
-    slot.className = "provider-card available-slot";
-
-    slot.innerHTML = `
-        <div class="slot-content">
-            <span>SLOT TERSEDIA</span>
-            <small>Space Available</small>
-        </div>
-    `;
-
-    return slot;
-}
-
-function renderProviders() {
-    providerGrid.innerHTML = "";
-
-    const activeProviders = providers.filter(
-        provider => provider.status === "active"
-    );
-
-    activeProviders.forEach(provider => {
-        providerGrid.appendChild(
-            createProviderCard(provider)
-        );
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    const emptySlots = totalSlots - activeProviders.length;
+    siteNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
 
-    for (let i = 0; i < emptySlots; i++) {
-        providerGrid.appendChild(
-            createAvailableSlot()
-        );
-    }
-}
+    document.addEventListener("click", (event) => {
+      if (
+        siteNav.classList.contains("is-open") &&
+        !siteNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    });
 
-renderProviders();
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) {
+        closeMenu();
+      }
+    });
+  }
+})();
