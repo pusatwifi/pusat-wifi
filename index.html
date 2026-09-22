@@ -52,40 +52,41 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-in-up { animation: fadeInUp 0.3s ease-out forwards; }
+    
+    /* Kursor khusus untuk slider saat digeser di desktop */
+    .cursor-grab { cursor: grab; }
+    .cursor-grabbing { cursor: grabbing !important; }
   </style>
 </head>
 <body class="font-sans antialiased">
 
-  <!-- HEADER / NAVBAR (Kloning HiFi 100%) -->
+  <!-- HEADER / NAVBAR -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative">
       
-      <!-- KIRI: Hamburger Menu (Tampil di Mobile/Developer Mode) -->
+      <!-- KIRI: Hamburger Menu -->
       <div class="flex-1 md:hidden flex items-center">
         <button class="text-2xl text-hifi-black">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
 
-      <!-- TENGAH: Logo PUSATWIFI INDONESIA -->
+      <!-- TENGAH: Logo PUSATWIFI INDONESIA (Ukuran Sama Besar) -->
       <a href="#" class="flex-1 md:flex-none flex justify-center md:justify-start items-center group">
         <div class="text-xl sm:text-2xl font-extrabold tracking-tighter text-hifi-black flex items-center">
           PUSAT<span class="text-hifi-red">WIFI</span>
-          <span class="text-[10px] sm:text-xs ml-1.5 px-1.5 py-0.5 bg-hifi-yellow text-hifi-black rounded font-bold tracking-tight">INDONESIA</span>
+          <span class="bg-hifi-yellow text-hifi-black px-2 py-0.5 rounded-lg ml-2 shadow-sm tracking-normal">INDONESIA</span>
         </div>
       </a>
 
       <!-- KANAN: Desktop Menu & CTA WA -->
       <div class="flex-1 flex items-center justify-end gap-8">
-        <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-hifi-darkGray">
-          <a href="#cara-kerja" class="hover:text-hifi-red transition-colors">Cara Berlangganan</a>
           <a href="#pilih-paket" class="hover:text-hifi-red transition-colors">Paket Internet</a>
+          <a href="#cara-kerja" class="hover:text-hifi-red transition-colors">Cara Berlangganan</a>
           <a href="#rekomendasi" class="hover:text-hifi-red transition-colors">Rekomendasi</a>
-          <a href="#faq" class="hover:text-hifi-red transition-colors">FAQ</a>
         </nav>
         
-        <!-- WA Button (Tampil di Desktop & Mobile) -->
         <a href="https://wa.me/6281214141914" target="_blank" class="flex items-center gap-2 text-sm font-bold text-hifi-black hover:text-hifi-red transition-colors">
           <i class="fa-brands fa-whatsapp text-green-500 text-xl"></i>
           <span class="hidden sm:inline">0812-1414-1914</span>
@@ -96,29 +97,29 @@
   </header>
 
   <!-- THUMBNAIL CAROUSEL (5 SLIDE FOTO) -->
-  <section class="pt-20 relative w-full h-[250px] sm:h-[400px] md:h-[500px] overflow-hidden bg-gray-100 group">
-    <!-- Slider Container -->
-    <div id="slider" class="flex w-full h-full snap-x snap-mandatory overflow-x-auto no-scrollbar scroll-smooth">
+  <section class="pt-20 relative w-full h-[250px] sm:h-[400px] md:h-[500px] overflow-hidden bg-gray-100 group select-none">
+    <!-- Slider Container (Ditambahkan class cursor-grab untuk desktop) -->
+    <div id="slider" class="flex w-full h-full snap-x snap-mandatory overflow-x-auto no-scrollbar scroll-smooth cursor-grab">
       
-      <!-- Slide 1 (Bisa diganti src gambarnya nanti) -->
+      <!-- Slide 1 -->
       <div class="w-full h-full flex-shrink-0 snap-center relative">
-        <img src="https://placehold.co/1200x500/ED0226/FFFFFF?text=Promo+Spesial+Pusat+WiFi+1" alt="Slide 1" class="w-full h-full object-cover">
+        <img src="https://placehold.co/1200x500/ED0226/FFFFFF?text=Promo+Spesial+Pusat+WiFi+1" draggable="false" alt="Slide 1" class="w-full h-full object-cover pointer-events-none">
       </div>
       <!-- Slide 2 -->
       <div class="w-full h-full flex-shrink-0 snap-center relative">
-        <img src="https://placehold.co/1200x500/FFCC00/1A1A1A?text=Diskon+Pemasangan+Bulan+Ini+2" alt="Slide 2" class="w-full h-full object-cover">
+        <img src="https://placehold.co/1200x500/FFCC00/1A1A1A?text=Diskon+Pemasangan+Bulan+Ini+2" draggable="false" alt="Slide 2" class="w-full h-full object-cover pointer-events-none">
       </div>
       <!-- Slide 3 -->
       <div class="w-full h-full flex-shrink-0 snap-center relative">
-        <img src="https://placehold.co/1200x500/1A1A1A/FFFFFF?text=Internet+Fiber+Keluarga+3" alt="Slide 3" class="w-full h-full object-cover">
+        <img src="https://placehold.co/1200x500/1A1A1A/FFFFFF?text=Internet+Fiber+Keluarga+3" draggable="false" alt="Slide 3" class="w-full h-full object-cover pointer-events-none">
       </div>
       <!-- Slide 4 -->
       <div class="w-full h-full flex-shrink-0 snap-center relative">
-        <img src="https://placehold.co/1200x500/0055FF/FFFFFF?text=Koneksi+Gaming+Anti+Lag+4" alt="Slide 4" class="w-full h-full object-cover">
+        <img src="https://placehold.co/1200x500/0055FF/FFFFFF?text=Koneksi+Gaming+Anti+Lag+4" draggable="false" alt="Slide 4" class="w-full h-full object-cover pointer-events-none">
       </div>
       <!-- Slide 5 -->
       <div class="w-full h-full flex-shrink-0 snap-center relative">
-        <img src="https://placehold.co/1200x500/ED0226/FFCC00?text=Gratis+Router+%26+Instalasi+5" alt="Slide 5" class="w-full h-full object-cover">
+        <img src="https://placehold.co/1200x500/ED0226/FFCC00?text=Gratis+Router+%26+Instalasi+5" draggable="false" alt="Slide 5" class="w-full h-full object-cover pointer-events-none">
       </div>
 
     </div>
@@ -133,57 +134,19 @@
     </div>
   </section>
 
-  <!-- CARA BERLANGGANAN (4 LANGKAH) -->
-  <section id="cara-kerja" class="py-16 bg-hifi-gray border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-hifi-black mb-2">Cara Berlangganan</h2>
-        <p class="text-gray-600">4 Langkah Mudah Pasang WiFi Rumah</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-        <!-- Connecting Line (Desktop) -->
-        <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-300 -z-10 -translate-y-10"></div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-card text-center relative hover:-translate-y-1 transition-transform">
-          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">1</div>
-          <h3 class="font-bold text-hifi-black mb-2">Pilih Paket</h3>
-          <p class="text-xs text-gray-500">Pilih paket internet sesuai kebutuhan keluarga atau bisnis Anda.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-card text-center relative hover:-translate-y-1 transition-transform">
-          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">2</div>
-          <h3 class="font-bold text-hifi-black mb-2">Validasi Coverage</h3>
-          <p class="text-xs text-gray-500">Kirim alamat via WA untuk pengecekan jaringan fiber optik.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-card text-center relative hover:-translate-y-1 transition-transform">
-          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">3</div>
-          <h3 class="font-bold text-hifi-black mb-2">Instalasi</h3>
-          <p class="text-xs text-gray-500">Teknisi datang menarik kabel dan memasang router Wi-Fi di rumah.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-card text-center relative hover:-translate-y-1 transition-transform">
-          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">4</div>
-          <h3 class="font-bold text-hifi-black mb-2">Pembayaran</h3>
-          <p class="text-xs text-gray-500">Lakukan pembayaran resmi dan nikmati layanan internet andal.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILIHAN PAKET (KARTU HIFI) -->
-  <section id="pilih-paket" class="py-20 bg-white">
+  <!-- PILIHAN PAKET (KARTU HIFI) - PINDAH KE ATAS -->
+  <section id="pilih-paket" class="py-20 bg-hifi-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="mb-12">
+      <div class="mb-12 text-center md:text-left">
         <h2 class="text-3xl font-extrabold text-hifi-black">Pilih paket pilihan Anda</h2>
+        <p class="text-gray-500 mt-2">Daftar harga transparan tanpa biaya tersembunyi.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         <!-- KARTU 1 -->
-        <div class="bg-white border-2 border-gray-100 rounded-[2rem] shadow-card overflow-hidden hover:border-hifi-yellow transition-colors duration-300">
+        <div class="bg-white border border-gray-200 rounded-[2rem] shadow-card overflow-hidden hover:border-hifi-yellow hover:shadow-xl transition-all duration-300">
           <div class="p-8">
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-xl font-bold text-hifi-black">HiFi<br><span class="text-gray-500 font-normal">Standard</span></h3>
@@ -221,7 +184,7 @@
         </div>
 
         <!-- KARTU 2 -->
-        <div class="bg-white border-2 border-gray-100 rounded-[2rem] shadow-card overflow-hidden hover:border-hifi-yellow transition-colors duration-300">
+        <div class="bg-white border border-gray-200 rounded-[2rem] shadow-card overflow-hidden hover:border-hifi-yellow hover:shadow-xl transition-all duration-300">
           <div class="p-8">
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-xl font-bold text-hifi-black">CBN<br><span class="text-gray-500 font-normal">Fiber Home</span></h3>
@@ -259,8 +222,8 @@
         </div>
 
         <!-- KARTU 3 (Cek Provider Lain) -->
-        <div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-[2rem] overflow-hidden flex flex-col justify-center items-center text-center p-8">
-          <div class="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center text-3xl text-hifi-red mb-6">
+        <div class="bg-white border-2 border-dashed border-gray-300 rounded-[2rem] overflow-hidden flex flex-col justify-center items-center text-center p-8 hover:border-hifi-black transition-all">
+          <div class="w-20 h-20 bg-gray-100 rounded-full shadow-inner flex items-center justify-center text-3xl text-hifi-red mb-6">
             <i class="fa-solid fa-location-dot"></i>
           </div>
           <h3 class="text-2xl font-extrabold text-hifi-black mb-3">Belum tercover?</h3>
@@ -276,16 +239,55 @@
     </div>
   </section>
 
+  <!-- CARA BERLANGGANAN (4 LANGKAH) - PINDAH KE BAWAH -->
+  <section id="cara-kerja" class="py-20 bg-white border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-hifi-black mb-2">Cara Berlangganan</h2>
+        <p class="text-gray-600">4 Langkah Mudah Pasang WiFi Rumah</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        <!-- Connecting Line (Desktop) -->
+        <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -z-10 -translate-y-10"></div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
+          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">1</div>
+          <h3 class="font-bold text-hifi-black mb-2">Pilih Paket</h3>
+          <p class="text-xs text-gray-500">Pilih paket internet sesuai kebutuhan keluarga atau bisnis Anda.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
+          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">2</div>
+          <h3 class="font-bold text-hifi-black mb-2">Validasi Coverage</h3>
+          <p class="text-xs text-gray-500">Kirim alamat via WA untuk pengecekan jaringan fiber optik.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
+          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">3</div>
+          <h3 class="font-bold text-hifi-black mb-2">Instalasi</h3>
+          <p class="text-xs text-gray-500">Teknisi datang menarik kabel dan memasang router Wi-Fi di rumah.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
+          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">4</div>
+          <h3 class="font-bold text-hifi-black mb-2">Pembayaran</h3>
+          <p class="text-xs text-gray-500">Lakukan pembayaran resmi dan nikmati layanan internet andal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- REKOMENDASI TABEL -->
   <section id="rekomendasi" class="py-20 bg-hifi-gray">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
         <h2 class="text-3xl font-extrabold text-hifi-black">Rekomendasi Penggunaan Internet</h2>
       </div>
-      <div class="overflow-x-auto rounded-[1rem] border border-gray-200">
+      <div class="overflow-x-auto rounded-[1rem] border border-gray-200 shadow-sm">
         <table class="w-full text-left bg-white border-collapse">
           <thead>
-            <tr class="bg-gray-50 border-b border-gray-200">
+            <tr class="bg-gray-100 border-b border-gray-200">
               <th class="p-6 font-bold text-hifi-black w-1/4">Paket</th>
               <th class="p-6 font-bold text-hifi-black w-3/4">Rekomendasi Penggunaan Internet</th>
             </tr>
@@ -305,30 +307,72 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (Dengan Kontak yang Dirapikan) -->
   <footer class="bg-hifi-black text-white pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-800 pb-12 mb-8">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+        
+        <!-- Kolom Logo & Deskripsi -->
         <div class="md:col-span-5">
           <div class="text-2xl font-extrabold tracking-tighter text-white mb-6 flex items-center">
             PUSAT<span class="text-hifi-red">WIFI</span>
-            <span class="text-[10px] ml-1.5 px-1.5 py-0.5 bg-hifi-yellow text-hifi-black rounded font-bold">INDONESIA</span>
+            <span class="bg-hifi-yellow text-hifi-black px-2 py-0.5 rounded-lg ml-2 shadow-sm tracking-normal">INDONESIA</span>
           </div>
-          <div class="flex items-center gap-4 mb-6">
-            <div class="text-sm font-bold">Contact number</div>
-            <a href="https://wa.me/6281214141914" target="_blank" class="text-hifi-yellow text-xl font-bold flex items-center gap-2">
-              <i class="fa-brands fa-whatsapp"></i> 0812-1414-1914
-            </a>
-          </div>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">
+            Mitra pendaftaran provider internet rumah terpercaya. Kami membantu mengecek dan menghubungkan Anda dengan layanan koneksi paling andal di area Anda.
+          </p>
         </div>
-        <div class="md:col-span-4">
-          <h4 class="font-bold mb-4 text-white">Main Menu</h4>
-          <ul class="space-y-3 text-sm text-gray-400">
-            <li><a href="#pilih-paket" class="hover:text-hifi-yellow transition-colors">Paket Internet</a></li>
-            <li><a href="#cara-kerja" class="hover:text-hifi-yellow transition-colors">Cara Berlangganan</a></li>
-            <li><a href="#faq" class="hover:text-hifi-yellow transition-colors">FAQ</a></li>
+
+        <!-- Kolom Menu Navigasi -->
+        <div class="md:col-span-3">
+          <h4 class="font-bold mb-6 text-white text-lg border-b border-gray-800 pb-2 inline-block">Main Menu</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li><a href="#pilih-paket" class="hover:text-hifi-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Paket Internet</a></li>
+            <li><a href="#cara-kerja" class="hover:text-hifi-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Cara Berlangganan</a></li>
+            <li><a href="#rekomendasi" class="hover:text-hifi-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Rekomendasi</a></li>
           </ul>
         </div>
+
+        <!-- Kolom Kontak (Dirapikan Sesuai Permintaan) -->
+        <div class="md:col-span-4">
+          <h4 class="font-bold mb-6 text-white text-lg border-b border-gray-800 pb-2 inline-block">Hubungi Kami</h4>
+          <ul class="space-y-5">
+            <li>
+              <a href="https://wa.me/6281214141914" target="_blank" class="flex items-center gap-4 group">
+                <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-green-500 transition-colors">
+                  <i class="fa-brands fa-whatsapp text-xl text-white"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-400">WhatsApp</div>
+                  <div class="font-bold text-white group-hover:text-hifi-yellow transition-colors">0812-1414-1914</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://t.me/+6281214141914" target="_blank" class="flex items-center gap-4 group">
+                <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                  <i class="fa-brands fa-telegram text-xl text-white"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-400">Telegram</div>
+                  <div class="font-bold text-white group-hover:text-hifi-yellow transition-colors">0812-1414-1914</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:pusatwifiindonesia@gmail.com" class="flex items-center gap-4 group">
+                <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-hifi-red transition-colors">
+                  <i class="fa-solid fa-envelope text-xl text-white"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-400">Email</div>
+                  <div class="font-bold text-white text-sm group-hover:text-hifi-yellow transition-colors">pusatwifiindonesia@gmail.com</div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
     <div class="text-center text-xs text-gray-500 max-w-7xl mx-auto px-4">
@@ -336,7 +380,7 @@
     </div>
   </footer>
 
-  <!-- MODAL POP-UP (Anti Freeze Back Button) -->
+  <!-- MODAL POP-UP -->
   <div id="promoModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-sm w-full p-8 relative shadow-2xl animate-fade-in-up">
       <button type="button" onclick="closeModal()" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors">
@@ -367,11 +411,10 @@
     const slider = document.getElementById('slider');
     const dots = document.querySelectorAll('.slider-dot');
     
-    // Fungsi update dot saat di-scroll (manual swipe atau auto)
+    // Fungsi update dot saat di-scroll
     slider.addEventListener('scroll', () => {
       const scrollPos = slider.scrollLeft;
       const slideWidth = slider.offsetWidth;
-      // Deteksi index slide aktif saat ini
       const index = Math.round(scrollPos / slideWidth);
       
       dots.forEach((dot, i) => {
@@ -387,26 +430,53 @@
 
     // Auto-scroll Carousel tiap 4 detik
     let autoSlide = setInterval(nextSlide, 4000);
-
     function nextSlide() {
       const slideWidth = slider.offsetWidth;
       const maxScroll = slider.scrollWidth - slideWidth;
-      
       if (slider.scrollLeft >= maxScroll - 10) {
-        // Balik ke awal jika sudah di ujung slide
         slider.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
-        // Geser ke slide berikutnya
         slider.scrollTo({ left: slider.scrollLeft + slideWidth, behavior: 'smooth' });
       }
     }
 
-    // Pause auto-slide saat user menyentuh/menggeser secara manual
+    // Pause auto-slide saat berinteraksi
     slider.addEventListener('touchstart', () => clearInterval(autoSlide));
     slider.addEventListener('touchend', () => autoSlide = setInterval(nextSlide, 4000));
     slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
     slider.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 4000));
 
+    /* ---- DRAG TO SCROLL UNTUK DESKTOP (MOUSE EVENT) ---- */
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('cursor-grabbing'); // Ubah kursor jadi menggenggam
+      clearInterval(autoSlide); // hentikan auto slide
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('cursor-grabbing');
+    });
+    
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('cursor-grabbing');
+      autoSlide = setInterval(nextSlide, 4000); // mulai lagi auto slide
+    });
+    
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // kecepatan geser (bisa disesuaikan)
+      slider.scrollLeft = scrollLeft - walk;
+    });
 
     /* ---- LOGIKA MODAL POP-UP ---- */
     function openModal(packageName, packagePrice) {
