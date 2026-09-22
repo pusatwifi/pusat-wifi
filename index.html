@@ -66,10 +66,7 @@
       ==================================================
       PUSAT WIFI — Provider Wall Override
       ==================================================
-      Hanya memastikan Provider Wall memiliki tepat
-      10 slot dan tampil modern/responsive.
     */
-
     .provider-wall {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -189,9 +186,24 @@
 
     /*
       ==================================================
-      CONTACT ICONS OVERRIDE
+      CONTACT ICONS & FOOTER OVERRIDE
       ==================================================
     */
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-top: 12px;
+    }
+
     .contact-links {
       display: flex;
       flex-direction: column;
@@ -203,7 +215,7 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      color: #94a3b8; /* Warna teks yang menyatu dengan tema dark/abu-abu footer */
+      color: #94a3b8; 
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
@@ -211,7 +223,7 @@
     }
 
     .contact-item:hover, .contact-item:focus {
-      color: #38bdf8; /* Aksen biru saat di-hover */
+      color: #38bdf8; 
       transform: translateX(4px);
     }
 
@@ -223,12 +235,171 @@
     }
 
     .contact-item.email-icon svg {
-      fill: none; /* Khusus icon email menggunakan line stroke */
+      fill: none;
     }
 
+    /*
+      ==================================================
+      PROMO MODAL STYLES (POPUP)
+      ==================================================
+    */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: #0f172a; 
+      border: 1px solid #334155;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 900px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 28px;
+      color: #94a3b8;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+      max-height: 85vh;
+    }
+
+    .modal-left {
+      background: #f8fafc;
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 1px solid #334155;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .modal-left img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-right-top,
+    .modal-right-bottom {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .modal-right-top {
+      flex: 1;
+    }
+
+    .modal-right-top h3 {
+      margin: 0 0 12px;
+      color: #f8fafc;
+      font-size: 20px;
+    }
+
+    .modal-right-top p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .modal-right-bottom {
+      border-top: 1px solid #1e293b;
+      background: #0b1120;
+    }
+
+    .modal-right-bottom h4 {
+      margin: 0 0 16px;
+      color: #f8fafc;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .modal-contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modal-contact-grid .button {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Responsif */
     @media (max-width: 900px) {
       .provider-wall {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .modal-body {
+        grid-template-columns: 1fr;
+        max-height: 85vh;
+        overflow-y: auto;
+      }
+      .modal-left {
+        border-right: none;
+        border-bottom: 1px solid #334155;
+        padding: 16px;
+      }
+      .modal-right-top, .modal-right-bottom {
+        padding: 24px;
       }
     }
 
@@ -236,12 +407,10 @@
       .provider-wall {
         grid-template-columns: 1fr;
       }
-
       .provider-card,
       .available-slot {
         min-height: 170px;
       }
-
       .provider-logo {
         height: 64px;
       }
@@ -321,10 +490,6 @@
 
   <main id="main-content">
 
-    <!-- ==========================================
-         HERO
-         ========================================== -->
-
     <section class="hero">
       <div class="container">
 
@@ -367,11 +532,6 @@
       </div>
     </section>
 
-
-    <!-- ==========================================
-         PROVIDER WALL
-         TEPAT 10 SLOT
-         ========================================== -->
 
     <section
       id="providers"
@@ -437,11 +597,8 @@
         <div class="provider-wall">
 
           <!-- SLOT 01 — HIFI -->
-
           <article class="provider-card">
-
             <div class="provider-card-content">
-
               <img
                 class="provider-logo"
                 src="/assets/providers/hifi.svg"
@@ -449,40 +606,26 @@
                 width="180"
                 height="72"
               >
-
-              <h3 class="provider-name">
-                HiFi
-              </h3>
-
-              <p class="provider-status">
-                Provider Internet
-              </p>
-
+              <h3 class="provider-name">HiFi</h3>
+              <p class="provider-status">Provider Internet</p>
+              
               <div class="provider-actions">
-
                 <a
                   class="button button-small button-primary"
-                  href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20HiFi."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Cek coverage HiFi melalui WhatsApp"
+                  href="javascript:void(0)"
+                  onclick="openPromoModal('hifi')"
+                  aria-label="Lihat Promo dan Harga HiFi"
                 >
-                  Cek Coverage
+                  PROMO & HARGA
                 </a>
-
               </div>
-
             </div>
-
           </article>
 
 
           <!-- SLOT 02 — CBN -->
-
           <article class="provider-card">
-
             <div class="provider-card-content">
-
               <img
                 class="provider-logo"
                 src="/assets/providers/cbn.svg"
@@ -490,207 +633,85 @@
                 width="180"
                 height="72"
               >
-
-              <h3 class="provider-name">
-                CBN
-              </h3>
-
-              <p class="provider-status">
-                Provider Internet
-              </p>
+              <h3 class="provider-name">CBN</h3>
+              <p class="provider-status">Provider Internet</p>
 
               <div class="provider-actions">
-
                 <a
                   class="button button-small button-primary"
-                  href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20CBN."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Cek coverage CBN melalui WhatsApp"
+                  href="javascript:void(0)"
+                  onclick="openPromoModal('cbn')"
+                  aria-label="Lihat Promo dan Harga CBN"
                 >
-                  Cek Coverage
+                  PROMO & HARGA
                 </a>
-
               </div>
-
             </div>
-
           </article>
 
 
           <!-- SLOT 03 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 03 tersedia"
-          >
-
+          <article class="available-slot" aria-label="Slot provider 03 tersedia">
             <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+              <span class="available-slot-label">AVAILABLE</span>
+              <p class="available-slot-text">Provider slot tersedia</p>
             </div>
-
           </article>
-
 
           <!-- SLOT 04 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 04 tersedia"
-          >
-
+          <article class="available-slot" aria-label="Slot provider 04 tersedia">
             <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+              <span class="available-slot-label">AVAILABLE</span>
+              <p class="available-slot-text">Provider slot tersedia</p>
             </div>
-
           </article>
-
 
           <!-- SLOT 05 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 05 tersedia"
-          >
-
+          <article class="available-slot" aria-label="Slot provider 05 tersedia">
             <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+              <span class="available-slot-label">AVAILABLE</span>
+              <p class="available-slot-text">Provider slot tersedia</p>
             </div>
-
           </article>
-
 
           <!-- SLOT 06 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 06 tersedia"
-          >
-
+          <article class="available-slot" aria-label="Slot provider 06 tersedia">
             <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+              <span class="available-slot-label">AVAILABLE</span>
+              <p class="available-slot-text">Provider slot tersedia</p>
             </div>
-
           </article>
-
 
           <!-- SLOT 07 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 07 tersedia"
-          >
-
+          <article class="available-slot" aria-label="Slot provider 07 tersedia">
             <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+              <span class="available-slot-label">AVAILABLE</span>
+              <p class="available-slot-text">Provider slot tersedia</p>
             </div>
-
           </article>
-
 
           <!-- SLOT 08 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 08 tersedia"
-          >
-
+          <article class="available-slot" aria-label="Slot provider 08 tersedia">
             <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+              <span class="available-slot-label">AVAILABLE</span>
+              <p class="available-slot-text">Provider slot tersedia</p>
             </div>
-
           </article>
-
 
           <!-- SLOT 09 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 09 tersedia"
-          >
-
+          <article class="available-slot" aria-label="Slot provider 09 tersedia">
             <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+              <span class="available-slot-label">AVAILABLE</span>
+              <p class="available-slot-text">Provider slot tersedia</p>
             </div>
-
           </article>
 
-
           <!-- SLOT 10 -->
-
-          <article
-            class="available-slot"
-            aria-label="Slot provider 10 tersedia"
-          >
-
+          <article class="available-slot" aria-label="Slot provider 10 tersedia">
             <div class="available-slot-inner">
-
-              <span class="available-slot-label">
-                AVAILABLE
-              </span>
-
-              <p class="available-slot-text">
-                Provider slot tersedia
-              </p>
-
+              <span class="available-slot-label">AVAILABLE</span>
+              <p class="available-slot-text">Provider slot tersedia</p>
             </div>
-
           </article>
 
         </div>
@@ -698,141 +719,64 @@
       </div>
     </section>
 
-
-    <!-- ==========================================
-         COVERAGE / CARA KERJA
-         ========================================== -->
 
     <section
       id="cara-kerja"
       class="process-section"
     >
-
       <div class="container">
-
         <div class="section-heading">
-
-          <p class="eyebrow">
-            CARA KERJA
-          </p>
-
-          <h2>
-            Sederhana, mulai dari lokasi Anda
-          </h2>
-
+          <p class="eyebrow">CARA KERJA</p>
+          <h2>Sederhana, mulai dari lokasi Anda</h2>
           <p>
             Ketersediaan internet tetap perlu dicek berdasarkan
             lokasi pemasangan. Hubungi kami melalui WhatsApp
             untuk memulai proses.
           </p>
-
         </div>
-
 
         <div class="process-grid">
-
           <article class="process-card">
-
-            <span class="process-number">
-              01
-            </span>
-
-            <h3>
-              Pilih Provider
-            </h3>
-
-            <p>
-              Lihat provider yang tersedia di PUSAT WIFI.
-            </p>
-
+            <span class="process-number">01</span>
+            <h3>Pilih Provider</h3>
+            <p>Lihat provider yang tersedia di PUSAT WIFI.</p>
           </article>
 
-
           <article class="process-card">
-
-            <span class="process-number">
-              02
-            </span>
-
-            <h3>
-              Kirim Data
-            </h3>
-
-            <p>
-              Hubungi kami melalui WhatsApp untuk memulai
-              proses pengecekan.
-            </p>
-
+            <span class="process-number">02</span>
+            <h3>Kirim Data</h3>
+            <p>Hubungi kami melalui WhatsApp untuk memulai proses pengecekan.</p>
           </article>
 
-
           <article class="process-card">
-
-            <span class="process-number">
-              03
-            </span>
-
-            <h3>
-              Cek Coverage
-            </h3>
-
-            <p>
-              Coverage diperiksa berdasarkan lokasi pemasangan.
-            </p>
-
+            <span class="process-number">03</span>
+            <h3>Cek Coverage</h3>
+            <p>Coverage diperiksa berdasarkan lokasi pemasangan.</p>
           </article>
 
-
           <article class="process-card">
-
-            <span class="process-number">
-              04
-            </span>
-
-            <h3>
-              Pemasangan
-            </h3>
-
-            <p>
-              Jika tersedia, proses selanjutnya mengikuti
-              ketentuan provider.
-            </p>
-
+            <span class="process-number">04</span>
+            <h3>Pemasangan</h3>
+            <p>Jika tersedia, proses selanjutnya mengikuti ketentuan provider.</p>
           </article>
-
         </div>
-
       </div>
     </section>
 
-
-    <!-- ==========================================
-         PARTNER / SLOT
-         ========================================== -->
 
     <section
       id="partner"
       class="partner-section"
     >
-
       <div class="container">
-
         <div class="partner-box">
-
-          <p class="eyebrow">
-            PROVIDER & ADVERTISER
-          </p>
-
-          <h2>
-            Ingin Mengisi Salah Satu Slot?
-          </h2>
-
+          <p class="eyebrow">PROVIDER & ADVERTISER</p>
+          <h2>Ingin Mengisi Salah Satu Slot?</h2>
           <p>
             PUSAT WIFI memiliki jumlah slot provider yang terbatas.
             Jika Anda merupakan provider atau pihak yang ingin
             mengetahui ketersediaan slot, silakan hubungi kami.
           </p>
-
           <a
             class="button button-primary"
             href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20menanyakan%20slot%20provider."
@@ -842,29 +786,15 @@
           >
             Tanyakan Slot Provider
           </a>
-
         </div>
-
       </div>
     </section>
 
 
-    <!-- ==========================================
-         FINAL CTA
-         ========================================== -->
-
     <section class="final-cta">
-
       <div class="container">
-
-        <h2>
-          Butuh bantuan cek coverage?
-        </h2>
-
-        <p>
-          Hubungi PUSAT WIFI melalui WhatsApp.
-        </p>
-
+        <h2>Butuh bantuan cek coverage?</h2>
+        <p>Hubungi PUSAT WIFI melalui WhatsApp.</p>
         <a
           class="button button-primary"
           href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20ingin%20cek%20coverage%20internet."
@@ -873,34 +803,58 @@
         >
           Hubungi via WhatsApp
         </a>
-
       </div>
-
     </section>
+
+    <!-- ==========================================
+         PROMO MODAL HTML (POPUP)
+         ========================================== -->
+    <div id="promoModal" class="modal-overlay" onclick="closeModalOnOutsideClick(event)">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closePromoModal()" aria-label="Tutup">&times;</button>
+        
+        <div class="modal-body">
+          <!-- Area Kiri: Gambar Pricelist -->
+          <div class="modal-left">
+            <img id="modalImg" src="" alt="Pricelist Provider">
+          </div>
+          
+          <!-- Area Kanan: Coverage & Konsultasi -->
+          <div class="modal-right">
+            
+            <div class="modal-right-top">
+              <h3>Coverage Area</h3>
+              <p id="modalCoverageText">Memuat informasi area coverage...</p>
+            </div>
+            
+            <div class="modal-right-bottom">
+              <h4>Konsultasi & Pemasangan</h4>
+              <div class="modal-contact-grid">
+                <a id="modalWaBtn" href="#" class="button button-primary" target="_blank" rel="noopener noreferrer">
+                  Chat WhatsApp
+                </a>
+                <a id="modalTgBtn" href="#" class="button button-secondary" target="_blank" rel="noopener noreferrer">
+                  Chat Telegram
+                </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
 
   </main>
 
 
-  <!-- ==========================================
-       FOOTER
-       ========================================== -->
-
   <footer class="site-footer">
-
     <div class="container">
-
       <div class="footer-content">
-
+        
         <div>
-          <strong>
-            PUSAT WIFI
-          </strong>
+          <strong>PUSAT WIFI</strong>
+          <p>Pilihan provider internet Indonesia.</p>
 
-          <p>
-            Pilihan provider internet Indonesia.
-          </p>
-
-          <!-- KONTAK ICONS BERADA DI SINI -->
           <div class="contact-links">
             <a href="https://wa.me/6281214141914" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="Hubungi WhatsApp Kami">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -908,14 +862,12 @@
               </svg>
               <span>0812-1414-1914</span>
             </a>
-      
             <a href="https://t.me/6281214141914" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="Hubungi Telegram Kami">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
               </svg>
               <span>0812-1414-1914</span>
             </a>
-      
             <a href="mailto:pusatwifiindonesia@gmail.com" class="contact-item email-icon" aria-label="Kirim Email ke Kami">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -924,53 +876,75 @@
               <span>pusatwifiindonesia@gmail.com</span>
             </a>
           </div>
-
         </div>
 
-
         <div class="footer-links">
-
-          <a href="#providers">
-            Provider
-          </a>
-
-          <a href="#cara-kerja">
-            Cara Kerja
-          </a>
-
-          <a href="#partner">
-            Isi Slot
-          </a>
-
-          <a
-            href="mailto:pusatwifiindonesia@gmail.com"
-          >
-            Email
-          </a>
-
+          <a href="#providers">Provider</a>
+          <a href="#cara-kerja">Cara Kerja</a>
+          <a href="#partner">Isi Slot</a>
         </div>
 
       </div>
 
-
       <div class="footer-bottom">
-
         <p>
           © <span id="current-year">2026</span>
           PUSAT WIFI. Semua hak dilindungi.
         </p>
-
       </div>
-
     </div>
-
   </footer>
 
+  <script src="/js/app.js" defer></script>
 
-  <script
-    src="/js/app.js"
-    defer
-  ></script>
+  <!-- SCRIPT UNTUK MODAL PROMO -->
+  <script>
+    // Data dinamis untuk masing-masing provider
+    const providerData = {
+      hifi: {
+        // Path gambar sesuai dengan nama file yang dikirimkan (pastikan di-upload ke root folder github)
+        image: '/WhatsApp%20Image%202026-09-21%20at%2020.39.09.jpeg', 
+        coverage: 'Layanan Indosat HiFi saat ini menjangkau berbagai area perumahan di Indonesia. Hubungi kami untuk cek detail ketersediaan jaringan di alamat lengkap Anda.',
+        waLink: 'https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20tertarik%20dengan%20promo%20HiFi.',
+        tgLink: 'https://t.me/6281214141914'
+      },
+      cbn: {
+        // Path gambar sesuai dengan nama file yang dikirimkan
+        image: '/WhatsApp%20Image%202026-09-21%20at%2020.38.06.jpeg',
+        coverage: 'CBN Fiber mencakup jaringan fiber optic di berbagai wilayah perumahan dan apartemen. Hubungi kami untuk memastikan titik koordinat lokasi Anda.',
+        waLink: 'https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20tertarik%20dengan%20promo%20CBN.',
+        tgLink: 'https://t.me/6281214141914'
+      }
+    };
+
+    const modal = document.getElementById('promoModal');
+
+    function openPromoModal(providerKey) {
+      const data = providerData[providerKey];
+      
+      // Inject data ke dalam modal
+      document.getElementById('modalImg').src = data.image;
+      document.getElementById('modalCoverageText').innerText = data.coverage;
+      document.getElementById('modalWaBtn').href = data.waLink;
+      document.getElementById('modalTgBtn').href = data.tgLink;
+      
+      // Tampilkan modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; 
+    }
+
+    function closePromoModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto'; 
+    }
+
+    // Tutup modal jika area gelap di luar konten diklik
+    function closeModalOnOutsideClick(event) {
+      if (event.target === modal) {
+        closePromoModal();
+      }
+    }
+  </script>
 
 </body>
 </html>
