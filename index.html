@@ -114,24 +114,36 @@
     </div>
   </section>
 
-  <!-- THUMBNAIL CAROUSEL (Dioptimalkan Full Width & Center Focus) -->
+  <!-- THUMBNAIL CAROUSEL (Responsif Desktop & Mobile) -->
   <section class="relative w-full max-w-7xl mx-auto px-0 sm:px-4 md:px-8 py-4">
-    <div class="relative w-full h-[220px] sm:h-[350px] md:h-[450px] rounded-none sm:rounded-2xl overflow-hidden bg-gray-900 group select-none shadow-md">
+    <!-- Tinggi disesuaikan: 400px untuk HP, 450px/500px untuk layar lebih besar -->
+    <div class="relative w-full h-[400px] md:h-[450px] lg:h-[500px] rounded-none sm:rounded-2xl overflow-hidden bg-gray-900 group select-none shadow-md">
       
       <!-- Slider Container -->
       <div id="slider" class="flex w-full h-full snap-x snap-mandatory overflow-x-auto no-scrollbar scroll-smooth cursor-grab">
         
-        <!-- Slide 1 (-1) -->
+        <!-- Slide 1: CBN -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
-          <img src="assets/slide-cbn-1.png" draggable="false" alt="Promo CBN" class="w-full h-full object-cover object-center pointer-events-none">
+          <!-- Gambar Desktop (Disembunyikan di HP) -->
+          <img src="assets/slide-cbn-desktop1.webp" draggable="false" alt="Promo CBN" class="hidden md:block w-full h-full object-cover object-center pointer-events-none">
+          <!-- Gambar Mobile (Disembunyikan di Desktop) -->
+          <img src="assets/slide-cbn-mobile1.webp" draggable="false" alt="Promo CBN Mobile" class="block md:hidden w-full h-full object-cover object-center pointer-events-none">
         </div>
-        <!-- Slide 2 (-2) -->
+
+        <!-- Slide 2: HiFi -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
-          <img src="assets/slide-hifi-2.png" draggable="false" alt="Promo HiFi" class="w-full h-full object-cover object-center pointer-events-none">
+          <!-- Gambar Desktop -->
+          <img src="assets/slide-hifi-desktop2.webp" draggable="false" alt="Promo HiFi" class="hidden md:block w-full h-full object-cover object-center pointer-events-none">
+          <!-- Gambar Mobile -->
+          <img src="assets/slide-hifi-mobile2.webp" draggable="false" alt="Promo HiFi Mobile" class="block md:hidden w-full h-full object-cover object-center pointer-events-none">
         </div>
-        <!-- Slide 3 (-3) -->
+
+        <!-- Slide 3: Link / Lainnya -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
-          <img src="assets/slide-link-3.png" draggable="false" alt="Promo Provider Lain" class="w-full h-full object-cover object-center pointer-events-none">
+          <!-- Gambar Desktop -->
+          <img src="assets/slide-link-desktop3.webp" draggable="false" alt="Promo Lainnya" class="hidden md:block w-full h-full object-cover object-center pointer-events-none">
+          <!-- Gambar Mobile -->
+          <img src="assets/slide-link-mobile3.webp" draggable="false" alt="Promo Lainnya Mobile" class="block md:hidden w-full h-full object-cover object-center pointer-events-none">
         </div>
 
       </div>
