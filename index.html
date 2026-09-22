@@ -46,6 +46,7 @@
           boxShadow: {
             'card': '0 4px 25px rgba(0, 0, 0, 0.04)',
             'soft': '0 2px 15px rgba(0, 0, 0, 0.03)',
+            'glow': '0 0 20px rgba(254, 235, 200, 0.5)',
           }
         }
       }
@@ -80,11 +81,11 @@
         </button>
       </div>
 
-      <!-- TENGAH: Logo -->
+      <!-- TENGAH: Logo dengan Efek Hover Kotak Soft Pastel -->
       <a href="#" class="flex-1 md:flex-none flex justify-center md:justify-start items-center group">
-        <div class="text-xl sm:text-2xl font-extrabold tracking-tight text-brand-dark flex items-center">
-          PUSAT<span class="text-pastel-red px-1">WIFI</span>
-          <span class="bg-pastel-yellow text-brand-dark px-2.5 py-0.5 rounded-xl ml-2 text-xs sm:text-sm shadow-soft tracking-normal font-bold">INDONESIA</span>
+        <div class="text-xl sm:text-2xl font-extrabold tracking-tight text-brand-dark flex items-center px-3.5 py-2 rounded-2xl transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-pastel-yellow/30 group-hover:to-pastel-pink/30 group-hover:shadow-soft">
+          <span>PUSAT</span><span class="text-rose-600 px-1 font-black group-hover:text-rose-700 transition-colors">WIFI</span>
+          <span class="bg-pastel-yellow text-brand-dark px-2.5 py-0.5 rounded-xl ml-2 text-xs sm:text-sm shadow-soft tracking-normal font-bold border border-yellow-200/50">INDONESIA</span>
         </div>
       </a>
 
@@ -96,7 +97,7 @@
           <a href="#kemitraan" class="hover:text-blue-500 transition-colors">Jadi Mitra</a>
         </nav>
         
-        <a href="https://wa.me/6281214141914" target="_blank" class="flex items-center gap-2 text-sm font-bold text-brand-dark hover:text-green-600 transition-colors bg-green-50 px-3.5 py-2 rounded-xl border border-green-100">
+        <a href="https://wa.me/6281214141914" target="_blank" class="flex items-center gap-2 text-sm font-bold text-brand-dark hover:text-green-600 transition-colors bg-green-50 px-3.5 py-2 rounded-xl border border-green-100 shadow-soft">
           <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i>
           <span class="hidden sm:inline">0812-1414-1914</span>
         </a>
@@ -122,13 +123,26 @@
     <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
       Bandingkan dan pilih penawaran terbaik dari berbagai provider resmi. Hubungi kami untuk cek ketersediaan jaringan di lokasi Anda secara instan dan gratis!
     </p>
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
       <a href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI,%20saya%20tertarik%20dengan%20Hot%20Promo%20internet.%20Tolong%20bantu%20cek%20coverage%20untuk%20alamat%20saya." target="_blank" class="bg-pastel-yellow hover:bg-yellow-200 text-brand-dark font-bold py-3.5 px-8 rounded-2xl transition-all shadow-soft flex items-center justify-center gap-2">
         <i class="fa-brands fa-whatsapp text-xl text-green-600"></i> Cek Coverage via WhatsApp
       </a>
       <a href="#pilih-paket" class="bg-brand-bg hover:bg-gray-200/70 text-brand-dark font-bold py-3.5 px-8 rounded-2xl transition-all shadow-soft flex items-center justify-center">
         Lihat Hot Promo Pilihan
       </a>
+    </div>
+
+    <!-- TRUST / FEATURE BAR (Optimasi Konversi) -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto py-6 px-6 bg-brand-bg rounded-3xl border border-gray-100 shadow-soft">
+      <div class="flex items-center justify-center gap-3 text-xs sm:text-sm font-semibold text-brand-dark">
+        <i class="fa-solid fa-bolt text-amber-500 text-lg"></i> Proses Cepat via WA
+      </div>
+      <div class="flex items-center justify-center gap-3 text-xs sm:text-sm font-semibold text-brand-dark">
+        <i class="fa-solid fa-shield-halved text-emerald-500 text-lg"></i> Resmi Langsung ISP
+      </div>
+      <div class="flex items-center justify-center gap-3 text-xs sm:text-sm font-semibold text-brand-dark">
+        <i class="fa-solid fa-tags text-rose-500 text-lg"></i> Harga Transparan
+      </div>
     </div>
   </section>
 
@@ -181,7 +195,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         <!-- KARTU 1: CBN (Harga Rp193.140) -->
-        <div class="bg-white border-t-8 border-pastel-blue rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between relative">
+        <div class="bg-white border-t-8 border-pastel-blue rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 p-8 flex flex-col justify-between relative">
           <div class="absolute top-6 right-6 bg-blue-50 text-blue-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-100">
             HOT PROMO CBN
           </div>
@@ -224,7 +238,7 @@
         </div>
 
         <!-- KARTU 2: HIFI (Harga Rp220.890) -->
-        <div class="bg-white border-t-8 border-pastel-yellow rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between relative">
+        <div class="bg-white border-t-8 border-pastel-yellow rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 p-8 flex flex-col justify-between relative">
           <div class="absolute top-6 right-6 bg-yellow-100 text-yellow-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-yellow-200">
             BEST SELLER
           </div>
@@ -267,7 +281,7 @@
         </div>
 
         <!-- KARTU 3: LINKNET (Harga Rp399.000) -->
-        <div class="bg-white border-t-8 border-pastel-pink rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between relative">
+        <div class="bg-white border-t-8 border-pastel-pink rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 p-8 flex flex-col justify-between relative">
           <div class="absolute top-6 right-6 bg-pink-100 text-pink-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-pink-200">
             PREMIUM CHOICE
           </div>
