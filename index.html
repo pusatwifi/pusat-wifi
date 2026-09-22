@@ -271,7 +271,7 @@
       border: 1px solid #334155;
       border-radius: 20px;
       width: 100%;
-      max-width: 950px; /* Sedikit diperlebar agar proporsional */
+      max-width: 950px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -309,14 +309,13 @@
     }
 
     .modal-left {
-      /* Background dibuat gelap agar tidak terlihat seperti bingkai putih */
       background: #0b1120; 
-      padding: 40px; /* Memberi ruang agar bayangan 3D terlihat jelas */
+      padding: 40px; 
       overflow-y: auto;
       border-right: 1px solid #1e293b;
       display: flex;
       justify-content: center;
-      align-items: center; /* Gambar di tengah vertikal */
+      align-items: center;
     }
 
     .modal-left img {
@@ -331,7 +330,6 @@
     }
 
     .modal-left img:hover {
-      /* Efek melayang saat kursor diarahkan ke gambar */
       transform: scale(1.02) translateY(-4px); 
       box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.7), 0 12px 15px -6px rgba(0, 0, 0, 0.5);
     }
@@ -910,7 +908,7 @@
 
   <!-- SCRIPT UNTUK MODAL PROMO -->
   <script>
-    // Data dinamis untuk masing-masing provider
+    // Data dinamis untuk masing-masing provider (termasuk promo-cbn.png)
     const providerData = {
       hifi: {
         image: '/assets/promo-hifi.png', 
@@ -919,7 +917,7 @@
         tgLink: 'https://t.me/6281214141914'
       },
       cbn: {
-        image: '/WhatsApp%20Image%202026-09-21%20at%2020.38.06.jpeg',
+        image: '/assets/promo-cbn.png',
         coverage: 'CBN Fiber mencakup jaringan fiber optic di berbagai wilayah perumahan dan apartemen. Hubungi kami untuk memastikan titik koordinat lokasi Anda.',
         waLink: 'https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20tertarik%20dengan%20promo%20CBN.',
         tgLink: 'https://t.me/6281214141914'
