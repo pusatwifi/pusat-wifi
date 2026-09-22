@@ -31,16 +31,16 @@
             },
             /* 10 WARNA PELANGI PASTEL (Kalem, Soft, & Modern) */
             pastel: {
-              red: '#FEB2B2',     /* Telkomsel / Merah Soft */
-              orange: '#FBD38D',  /* MNC / Oranye Soft */
-              yellow: '#FEEBC8',  /* HiFi / Kuning Soft */
-              green: '#C6F6D5',   /* MyRepublic / Hijau Soft */
-              mint: '#B2F5EA',    /* Tosca Soft */
-              blue: '#BEE3F8',    /* CBN / Biru Soft */
-              indigo: '#C3DAFE',  /* Indigo Soft */
-              purple: '#E9D8FD',  /* Orbit / Ungu Soft */
-              pink: '#FED7E2',    /* Pink Soft */
-              sand: '#EDF2F7',    /* Biznet / Abu Pasir Soft */
+              red: '#FEB2B2',     
+              orange: '#FBD38D',  
+              yellow: '#FEEBC8',  
+              green: '#C6F6D5',   
+              mint: '#B2F5EA',    
+              blue: '#BEE3F8',    
+              indigo: '#C3DAFE',  
+              purple: '#E9D8FD',  
+              pink: '#FED7E2',    /* Aksen untuk Paket Termurah LinkNet */
+              sand: '#EDF2F7',    
             }
           },
           boxShadow: {
@@ -107,7 +107,6 @@
 
   <!-- HERO SECTION -->
   <section class="pt-32 pb-8 bg-white text-center px-4 md:px-8 max-w-5xl mx-auto">
-    <!-- Badge Pelangi Mini -->
     <div class="inline-flex items-center gap-1.5 bg-gray-50 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-semibold text-gray-600 mb-6 shadow-soft">
       <span class="w-2 h-2 rounded-full bg-pastel-red"></span>
       <span class="w-2 h-2 rounded-full bg-pastel-yellow"></span>
@@ -133,34 +132,28 @@
     </div>
   </section>
 
-  <!-- THUMBNAIL CAROUSEL (Proporsional & Tidak Terpotong) -->
+  <!-- THUMBNAIL CAROUSEL -->
   <section class="relative w-full max-w-7xl mx-auto px-0 sm:px-4 md:px-8 py-4">
     <div class="relative w-full h-[500px] sm:h-[550px] md:h-[520px] lg:h-[580px] rounded-none sm:rounded-3xl overflow-hidden bg-white group select-none shadow-card border border-gray-100">
       
-      <!-- Slider Container -->
       <div id="slider" class="flex w-full h-full snap-x snap-mandatory overflow-x-auto no-scrollbar scroll-smooth cursor-grab">
-        
         <!-- Slide 1: CBN -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
           <img src="assets/slide-cbn-desktop1.webp" draggable="false" alt="Promo CBN" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
           <img src="assets/slide-cbn-mobile1.webp" draggable="false" alt="Promo CBN Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
-
         <!-- Slide 2: HiFi -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
           <img src="assets/slide-hifi-desktop2.webp" draggable="false" alt="Promo HiFi" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
           <img src="assets/slide-hifi-mobile2.webp" draggable="false" alt="Promo HiFi Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
-
-        <!-- Slide 3: Lainnya -->
+        <!-- Slide 3: LinkNet -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
-          <img src="assets/slide-link-desktop3.webp" draggable="false" alt="Promo Lainnya" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
-          <img src="assets/slide-link-mobile3.webp" draggable="false" alt="Promo Lainnya Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
+          <img src="assets/slide-link-desktop3.webp" draggable="false" alt="Promo LinkNet" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
+          <img src="assets/slide-link-mobile3.webp" draggable="false" alt="Promo LinkNet Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
-
       </div>
 
-      <!-- Dots Indicator -->
       <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/10 backdrop-blur-md px-3 py-1.5 rounded-full" id="slider-dots">
         <button class="slider-dot w-6 h-2 rounded-full bg-pastel-yellow transition-all duration-300"></button>
         <button class="slider-dot w-2 h-2 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
@@ -170,7 +163,7 @@
     </div>
   </section>
 
-  <!-- PILIHAN PAKET (PROVIDER WALL DENGAN AKSEN PASTEL PELANGI) -->
+  <!-- PILIHAN PAKET (PROVIDER WALL DENGAN KARTU LINKNET TERMURAH) -->
   <section id="pilih-paket" class="py-20 bg-brand-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -186,7 +179,7 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-        <!-- KARTU 1: HIFI (Aksen Pastel Yellow) -->
+        <!-- KARTU 1: HIFI -->
         <div class="bg-white border-t-8 border-pastel-yellow rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between">
           <div>
             <div class="flex justify-between items-center mb-6">
@@ -225,7 +218,7 @@
           </div>
         </div>
 
-        <!-- KARTU 2: CBN (Aksen Pastel Blue) -->
+        <!-- KARTU 2: CBN -->
         <div class="bg-white border-t-8 border-pastel-blue rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between">
           <div>
             <div class="flex justify-between items-center mb-6">
@@ -264,20 +257,46 @@
           </div>
         </div>
 
-        <!-- KARTU 3: Bantuan Cek Coverage (Aksen Pastel Mint/Green) -->
-        <div class="bg-white border-2 border-dashed border-pastel-green rounded-[2.5rem] overflow-hidden flex flex-col justify-between p-8 text-center shadow-card">
-          <div class="pt-4">
-            <div class="w-20 h-20 bg-emerald-50 rounded-3xl shadow-inner flex items-center justify-center text-3xl text-emerald-600 mx-auto mb-6 border border-emerald-100">
-              <i class="fa-solid fa-headset"></i>
-            </div>
-            <h3 class="text-2xl font-extrabold text-brand-dark mb-3">Bingung Pilih Provider?</h3>
-            <p class="text-sm text-gray-500 mb-8 leading-relaxed">
-              Kirimkan alamat Anda, tim kami akan bantu cek provider mana saja yang sudah tercover di titik lokasi rumah Anda.
-            </p>
+        <!-- KARTU 3: LINKNET (PAKET TERMURAH LINKNET) -->
+        <div class="bg-white border-t-8 border-pastel-pink rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between relative">
+          <div class="absolute top-6 right-6 bg-pink-100 text-pink-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+            Termurah LinkNet
           </div>
-          <a href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI,%20tolong%20bantu%20cek%20provider%20apa%20yang%20tersedia%20di%20alamat%20saya." target="_blank" class="w-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-900 font-bold py-4 rounded-2xl transition-all flex justify-center items-center gap-2">
-            <i class="fa-brands fa-whatsapp text-lg text-green-600"></i> Cek Coverage Sekarang
-          </a>
+          <div>
+            <div class="flex justify-between items-center mb-6 pt-2">
+              <h3 class="text-xl font-bold text-brand-dark">LinkNet<br><span class="text-gray-400 font-normal text-sm">Value / Start</span></h3>
+              <div class="text-right bg-pink-50 px-3 py-1.5 rounded-2xl border border-pink-100">
+                <div class="text-2xl font-extrabold text-brand-dark">30</div>
+                <div class="text-xs font-bold text-pink-700">Mbps</div>
+              </div>
+            </div>
+
+            <div class="flex gap-2 mb-8 bg-gray-50 p-1.5 rounded-2xl text-xs font-semibold">
+              <div class="bg-white shadow-soft rounded-xl px-4 py-2 text-brand-dark text-center flex-1">1 Bulan</div>
+              <div class="px-4 py-2 text-gray-400 text-center flex-1">Bulanan</div>
+              <div class="px-4 py-2 text-gray-400 text-center flex-1">Promo</div>
+            </div>
+
+            <div class="mb-8">
+              <h4 class="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider">Fasilitas & Keunggulan</h4>
+              <ul class="space-y-3 text-sm text-brand-text">
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-pink-500 mt-1"></i><span>Internet Fiber Unlimited 30 Mbps</span></li>
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-pink-500 mt-1"></i><span>Bebas Biaya Instalasi & Perangkat</span></li>
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-pink-500 mt-1"></i><span>Stabil untuk Browsing & Keluarga</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="mb-6 pt-4 border-t border-gray-100">
+              <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Harga Promo LinkNet</div>
+              <div class="text-2xl font-extrabold text-brand-dark">Rp249.000<span class="text-xs font-normal text-gray-400"> /bulan</span></div>
+            </div>
+
+            <button type="button" onclick="openModal('LinkNet Value 30 Mbps', 'Rp249.000/bulan')" class="w-full bg-pastel-pink hover:bg-pink-200 text-brand-dark font-bold py-4 rounded-2xl transition-all shadow-soft">
+              Pilih Paket LinkNet
+            </button>
+          </div>
         </div>
 
       </div>
@@ -322,7 +341,7 @@
     </div>
   </section>
 
-  <!-- PROGRAM KEMITRAAN (SOFT GRADIENT PASTEL) -->
+  <!-- PROGRAM KEMITRAAN -->
   <section id="kemitraan" class="py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-y border-purple-100 relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
       <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-soft border border-purple-100">
