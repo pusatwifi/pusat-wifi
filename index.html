@@ -114,42 +114,42 @@
     </div>
   </section>
 
-  <!-- THUMBNAIL CAROUSEL (Responsif Desktop & Mobile) -->
+  <!-- THUMBNAIL CAROUSEL (Disesuaikan agar Desktop & Mobile tidak terpotong) -->
   <section class="relative w-full max-w-7xl mx-auto px-0 sm:px-4 md:px-8 py-4">
-    <!-- Tinggi diubah proporsional: h-[540px] untuk HP agar tidak terpotong, dan h-[450px] untuk md ke atas -->
-    <div class="relative w-full h-[540px] sm:h-[600px] md:h-[450px] lg:h-[500px] rounded-none sm:rounded-2xl overflow-hidden bg-gray-900 group select-none shadow-md">
+    <!-- Tinggi disesuaikan responsif: h-[500px] di HP, h-[500px] di Tablet, dan h-[550px] di Desktop agar gambar banner tampil penuh -->
+    <div class="relative w-full h-[500px] sm:h-[550px] md:h-[520px] lg:h-[580px] rounded-none sm:rounded-2xl overflow-hidden bg-white group select-none shadow-sm">
       
       <!-- Slider Container -->
       <div id="slider" class="flex w-full h-full snap-x snap-mandatory overflow-x-auto no-scrollbar scroll-smooth cursor-grab">
         
         <!-- Slide 1: CBN -->
-        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
-          <!-- Gambar Desktop (Disembunyikan di HP) -->
-          <img src="assets/slide-cbn-desktop1.webp" draggable="false" alt="Promo CBN" class="hidden md:block w-full h-full object-cover object-center pointer-events-none">
-          <!-- Gambar Mobile (Disembunyikan di Desktop) -->
-          <img src="assets/slide-cbn-mobile1.webp" draggable="false" alt="Promo CBN Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none bg-black">
+        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
+          <!-- Gambar Desktop (Menggunakan object-contain agar tampil utuh tanpa terpotong) -->
+          <img src="assets/slide-cbn-desktop1.webp" draggable="false" alt="Promo CBN" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
+          <!-- Gambar Mobile -->
+          <img src="assets/slide-cbn-mobile1.webp" draggable="false" alt="Promo CBN Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
 
         <!-- Slide 2: HiFi -->
-        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
+        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
           <!-- Gambar Desktop -->
-          <img src="assets/slide-hifi-desktop2.webp" draggable="false" alt="Promo HiFi" class="hidden md:block w-full h-full object-cover object-center pointer-events-none">
+          <img src="assets/slide-hifi-desktop2.webp" draggable="false" alt="Promo HiFi" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
           <!-- Gambar Mobile -->
-          <img src="assets/slide-hifi-mobile2.webp" draggable="false" alt="Promo HiFi Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none bg-black">
+          <img src="assets/slide-hifi-mobile2.webp" draggable="false" alt="Promo HiFi Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
 
         <!-- Slide 3: Link / Lainnya -->
-        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
+        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
           <!-- Gambar Desktop -->
-          <img src="assets/slide-link-desktop3.webp" draggable="false" alt="Promo Lainnya" class="hidden md:block w-full h-full object-cover object-center pointer-events-none">
+          <img src="assets/slide-link-desktop3.webp" draggable="false" alt="Promo Lainnya" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
           <!-- Gambar Mobile -->
-          <img src="assets/slide-link-mobile3.webp" draggable="false" alt="Promo Lainnya Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none bg-black">
+          <img src="assets/slide-link-mobile3.webp" draggable="false" alt="Promo Lainnya Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
 
       </div>
 
       <!-- Dots Indicator (3 Dots) -->
-      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full" id="slider-dots">
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/20 backdrop-blur-md px-3 py-1.5 rounded-full" id="slider-dots">
         <button class="slider-dot w-6 h-2 rounded-full bg-hifi-yellow transition-all duration-300"></button>
         <button class="slider-dot w-2 h-2 rounded-full bg-white/60 hover:bg-white transition-all duration-300"></button>
         <button class="slider-dot w-2 h-2 rounded-full bg-white/60 hover:bg-white transition-all duration-300"></button>
