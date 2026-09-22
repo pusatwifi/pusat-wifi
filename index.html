@@ -271,7 +271,7 @@
       border: 1px solid #334155;
       border-radius: 20px;
       width: 100%;
-      max-width: 900px;
+      max-width: 950px; /* Sedikit diperlebar agar proporsional */
       position: relative;
       overflow: hidden;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -309,13 +309,14 @@
     }
 
     .modal-left {
-      background: #f8fafc;
-      padding: 20px;
+      /* Background dibuat gelap agar tidak terlihat seperti bingkai putih */
+      background: #0b1120; 
+      padding: 40px; /* Memberi ruang agar bayangan 3D terlihat jelas */
       overflow-y: auto;
-      border-right: 1px solid #334155;
+      border-right: 1px solid #1e293b;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center; /* Gambar di tengah vertikal */
     }
 
     .modal-left img {
@@ -323,7 +324,16 @@
       max-width: 100%;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      /* Efek 3D pop-up */
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+      transform: scale(1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modal-left img:hover {
+      /* Efek melayang saat kursor diarahkan ke gambar */
+      transform: scale(1.02) translateY(-4px); 
+      box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.7), 0 12px 15px -6px rgba(0, 0, 0, 0.5);
     }
 
     .modal-right {
@@ -341,6 +351,7 @@
 
     .modal-right-top {
       flex: 1;
+      background: #0f172a;
     }
 
     .modal-right-top h3 {
@@ -395,8 +406,8 @@
       }
       .modal-left {
         border-right: none;
-        border-bottom: 1px solid #334155;
-        padding: 16px;
+        border-bottom: 1px solid #1e293b;
+        padding: 30px 20px;
       }
       .modal-right-top, .modal-right-bottom {
         padding: 24px;
@@ -902,7 +913,6 @@
     // Data dinamis untuk masing-masing provider
     const providerData = {
       hifi: {
-        // Path gambar ini sudah disesuaikan mengarah ke folder assets
         image: '/assets/promo-hifi.png', 
         coverage: 'Layanan Indosat HiFi saat ini menjangkau berbagai area perumahan di Indonesia. Hubungi kami untuk cek detail ketersediaan jaringan di alamat lengkap Anda.',
         waLink: 'https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI%2C%20saya%20tertarik%20dengan%20promo%20HiFi.',
