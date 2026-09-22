@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PUSAT WIFI INDONESIA — Pilihan Provider Internet</title>
-  <meta name="description" content="Temukan provider internet fiber terbaik dalam satu tempat. Cek coverage dan pasang WiFi rumah dengan praktis dan mudah.">
+  <title>PUSAT WIFI INDONESIA — Pilihan Provider Internet All Provider</title>
+  <meta name="description" content="Temukan provider internet fiber terbaik dalam satu tempat dengan pilihan lengkap dan transparan. Cek coverage dan pasang WiFi rumah dengan mudah.">
   
   <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,17 +24,28 @@
             sans: ['Poppins', 'sans-serif'],
           },
           colors: {
-            hifi: {
-              yellow: '#FFCC00', 
-              red: '#ED0226',    
-              black: '#1A1A1A',
-              gray: '#F5F5F5',
-              darkGray: '#333333',
-              border: '#EAEAEA'
+            brand: {
+              dark: '#1E293B',
+              text: '#334155',
+              bg: '#F8FAFC',
+            },
+            /* 10 WARNA PELANGI PASTEL (Kalem, Soft, & Modern) */
+            pastel: {
+              red: '#FEB2B2',     /* Telkomsel / Merah Soft */
+              orange: '#FBD38D',  /* MNC / Oranye Soft */
+              yellow: '#FEEBC8',  /* HiFi / Kuning Soft */
+              green: '#C6F6D5',   /* MyRepublic / Hijau Soft */
+              mint: '#B2F5EA',    /* Tosca Soft */
+              blue: '#BEE3F8',    /* CBN / Biru Soft */
+              indigo: '#C3DAFE',  /* Indigo Soft */
+              purple: '#E9D8FD',  /* Orbit / Ungu Soft */
+              pink: '#FED7E2',    /* Pink Soft */
+              sand: '#EDF2F7',    /* Biznet / Abu Pasir Soft */
             }
           },
           boxShadow: {
-            'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+            'card': '0 4px 25px rgba(0, 0, 0, 0.04)',
+            'soft': '0 2px 15px rgba(0, 0, 0, 0.03)',
           }
         }
       }
@@ -42,18 +53,16 @@
   </script>
   
   <style>
-    body { background-color: #FFFFFF; color: #333333; }
-    /* Hide scrollbar */
+    body { background-color: #FFFFFF; color: #334155; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    /* Animasi Pop-up */
+    
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-in-up { animation: fadeInUp 0.3s ease-out forwards; }
     
-    /* Kursor khusus untuk slider saat digeser di desktop */
     .cursor-grab { cursor: grab; }
     .cursor-grabbing { cursor: grabbing !important; }
   </style>
@@ -61,34 +70,34 @@
 <body class="font-sans antialiased">
 
   <!-- HEADER / NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative">
       
-      <!-- KIRI: Hamburger Menu -->
+      <!-- KIRI: Hamburger Menu (Mobile) -->
       <div class="flex-1 md:hidden flex items-center">
-        <button class="text-2xl text-hifi-black">
+        <button class="text-2xl text-brand-dark">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
 
       <!-- TENGAH: Logo -->
       <a href="#" class="flex-1 md:flex-none flex justify-center md:justify-start items-center group">
-        <div class="text-xl sm:text-2xl font-extrabold tracking-tighter text-hifi-black flex items-center">
-          PUSAT<span class="text-hifi-red">WIFI</span>
-          <span class="bg-hifi-yellow text-hifi-black px-2 py-0.5 rounded-lg ml-2 shadow-sm tracking-normal">INDONESIA</span>
+        <div class="text-xl sm:text-2xl font-extrabold tracking-tight text-brand-dark flex items-center">
+          PUSAT<span class="text-pastel-red px-1">WIFI</span>
+          <span class="bg-pastel-yellow text-brand-dark px-2.5 py-0.5 rounded-xl ml-2 text-xs sm:text-sm shadow-soft tracking-normal font-bold">INDONESIA</span>
         </div>
       </a>
 
       <!-- KANAN: Desktop Menu & CTA WA -->
       <div class="flex-1 flex items-center justify-end gap-8">
-        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-hifi-darkGray">
-          <a href="#pilih-paket" class="hover:text-hifi-red transition-colors">Paket Internet</a>
-          <a href="#cara-kerja" class="hover:text-hifi-red transition-colors">Cara Berlangganan</a>
-          <a href="#kemitraan" class="hover:text-hifi-red transition-colors">Jadi Mitra</a>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-brand-text">
+          <a href="#pilih-paket" class="hover:text-blue-500 transition-colors">Paket Internet</a>
+          <a href="#cara-kerja" class="hover:text-blue-500 transition-colors">Cara Berlangganan</a>
+          <a href="#kemitraan" class="hover:text-blue-500 transition-colors">Jadi Mitra</a>
         </nav>
         
-        <a href="https://wa.me/6281214141914" target="_blank" class="flex items-center gap-2 text-sm font-bold text-hifi-black hover:text-hifi-red transition-colors">
-          <i class="fa-brands fa-whatsapp text-green-500 text-xl"></i>
+        <a href="https://wa.me/6281214141914" target="_blank" class="flex items-center gap-2 text-sm font-bold text-brand-dark hover:text-green-600 transition-colors bg-green-50 px-3.5 py-2 rounded-xl border border-green-100">
+          <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i>
           <span class="hidden sm:inline">0812-1414-1914</span>
         </a>
       </div>
@@ -98,169 +107,176 @@
 
   <!-- HERO SECTION -->
   <section class="pt-32 pb-8 bg-white text-center px-4 md:px-8 max-w-5xl mx-auto">
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-hifi-black mb-6 tracking-tight leading-tight">
+    <!-- Badge Pelangi Mini -->
+    <div class="inline-flex items-center gap-1.5 bg-gray-50 border border-gray-200 px-4 py-1.5 rounded-full text-xs font-semibold text-gray-600 mb-6 shadow-soft">
+      <span class="w-2 h-2 rounded-full bg-pastel-red"></span>
+      <span class="w-2 h-2 rounded-full bg-pastel-yellow"></span>
+      <span class="w-2 h-2 rounded-full bg-pastel-green"></span>
+      <span class="w-2 h-2 rounded-full bg-pastel-blue"></span>
+      <span class="w-2 h-2 rounded-full bg-pastel-purple"></span>
+      <span class="ml-1 tracking-wide">Pusat Layanan All Provider Internet Rumah</span>
+    </div>
+
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-dark mb-6 tracking-tight leading-tight">
       Temukan Provider Internet<br class="hidden md:block"> Dalam Satu Tempat.
     </h1>
     <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-      Pilih provider yang tersedia, lalu hubungi PUSAT WIFI untuk membantu proses pengecekan coverage secara akurat berdasarkan lokasi pemasangan.
+      Pilih provider favorit Anda, lalu hubungi PUSAT WIFI untuk pengecekan coverage secara akurat berdasarkan lokasi pemasangan secara gratis.
     </p>
     <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <a href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI,%20tolong%20bantu%20cek%20coverage%20untuk%20alamat%20saya." target="_blank" class="bg-hifi-yellow hover:bg-yellow-400 text-hifi-black font-bold py-3.5 px-8 rounded-xl transition-colors shadow-sm flex items-center justify-center gap-2">
-        <i class="fa-brands fa-whatsapp text-xl"></i> Cek Coverage via WhatsApp
+      <a href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI,%20tolong%20bantu%20cek%20coverage%20untuk%20alamat%20saya." target="_blank" class="bg-pastel-yellow hover:bg-yellow-200 text-brand-dark font-bold py-3.5 px-8 rounded-2xl transition-all shadow-soft flex items-center justify-center gap-2">
+        <i class="fa-brands fa-whatsapp text-xl text-green-600"></i> Cek Coverage via WhatsApp
       </a>
-      <a href="#pilih-paket" class="bg-gray-100 hover:bg-gray-200 text-hifi-black font-bold py-3.5 px-8 rounded-xl transition-colors shadow-sm flex items-center justify-center">
+      <a href="#pilih-paket" class="bg-brand-bg hover:bg-gray-200/70 text-brand-dark font-bold py-3.5 px-8 rounded-2xl transition-all shadow-soft flex items-center justify-center">
         Lihat Pilihan Provider
       </a>
     </div>
   </section>
 
-  <!-- THUMBNAIL CAROUSEL (Disesuaikan agar Desktop & Mobile tidak terpotong) -->
+  <!-- THUMBNAIL CAROUSEL (Proporsional & Tidak Terpotong) -->
   <section class="relative w-full max-w-7xl mx-auto px-0 sm:px-4 md:px-8 py-4">
-    <!-- Tinggi disesuaikan responsif: h-[500px] di HP, h-[500px] di Tablet, dan h-[550px] di Desktop agar gambar banner tampil penuh -->
-    <div class="relative w-full h-[500px] sm:h-[550px] md:h-[520px] lg:h-[580px] rounded-none sm:rounded-2xl overflow-hidden bg-white group select-none shadow-sm">
+    <div class="relative w-full h-[500px] sm:h-[550px] md:h-[520px] lg:h-[580px] rounded-none sm:rounded-3xl overflow-hidden bg-white group select-none shadow-card border border-gray-100">
       
       <!-- Slider Container -->
       <div id="slider" class="flex w-full h-full snap-x snap-mandatory overflow-x-auto no-scrollbar scroll-smooth cursor-grab">
         
         <!-- Slide 1: CBN -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
-          <!-- Gambar Desktop (Menggunakan object-contain agar tampil utuh tanpa terpotong) -->
           <img src="assets/slide-cbn-desktop1.webp" draggable="false" alt="Promo CBN" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
-          <!-- Gambar Mobile -->
           <img src="assets/slide-cbn-mobile1.webp" draggable="false" alt="Promo CBN Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
 
         <!-- Slide 2: HiFi -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
-          <!-- Gambar Desktop -->
           <img src="assets/slide-hifi-desktop2.webp" draggable="false" alt="Promo HiFi" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
-          <!-- Gambar Mobile -->
           <img src="assets/slide-hifi-mobile2.webp" draggable="false" alt="Promo HiFi Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
 
-        <!-- Slide 3: Link / Lainnya -->
+        <!-- Slide 3: Lainnya -->
         <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-white">
-          <!-- Gambar Desktop -->
           <img src="assets/slide-link-desktop3.webp" draggable="false" alt="Promo Lainnya" class="hidden md:block w-full h-full object-contain object-center pointer-events-none">
-          <!-- Gambar Mobile -->
           <img src="assets/slide-link-mobile3.webp" draggable="false" alt="Promo Lainnya Mobile" class="block md:hidden w-full h-full object-contain object-center pointer-events-none">
         </div>
 
       </div>
 
-      <!-- Dots Indicator (3 Dots) -->
-      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/20 backdrop-blur-md px-3 py-1.5 rounded-full" id="slider-dots">
-        <button class="slider-dot w-6 h-2 rounded-full bg-hifi-yellow transition-all duration-300"></button>
-        <button class="slider-dot w-2 h-2 rounded-full bg-white/60 hover:bg-white transition-all duration-300"></button>
-        <button class="slider-dot w-2 h-2 rounded-full bg-white/60 hover:bg-white transition-all duration-300"></button>
+      <!-- Dots Indicator -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/10 backdrop-blur-md px-3 py-1.5 rounded-full" id="slider-dots">
+        <button class="slider-dot w-6 h-2 rounded-full bg-pastel-yellow transition-all duration-300"></button>
+        <button class="slider-dot w-2 h-2 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
+        <button class="slider-dot w-2 h-2 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
       </div>
 
     </div>
   </section>
 
-  <!-- PILIHAN PAKET (PROVIDER WALL) -->
-  <section id="pilih-paket" class="py-20 bg-hifi-gray">
+  <!-- PILIHAN PAKET (PROVIDER WALL DENGAN AKSEN PASTEL PELANGI) -->
+  <section id="pilih-paket" class="py-20 bg-brand-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="mb-12 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
         <div>
-          <h2 class="text-3xl font-extrabold text-hifi-black">Pilihan Provider Internet</h2>
-          <p class="text-gray-500 mt-2">Daftar harga transparan dan promo spesial untuk Anda.</p>
+          <h2 class="text-3xl font-extrabold text-brand-dark">Pilihan Provider Internet</h2>
+          <p class="text-gray-500 mt-2">Daftar harga transparan dengan variasi provider terlengkap.</p>
         </div>
-        <div class="mt-4 md:mt-0 text-sm font-semibold bg-gray-200 px-4 py-2 rounded-lg text-gray-600">
-          Beberapa Slot Provider Tersedia
+        <div class="mt-4 md:mt-0 text-xs font-bold uppercase tracking-wider bg-white px-4 py-2.5 rounded-xl border border-gray-200 text-gray-500 shadow-soft flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-pastel-green"></span> Multiprovider Tersedia
         </div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-        <!-- KARTU 1: HIFI -->
-        <div class="bg-white border border-gray-200 rounded-[2rem] shadow-card overflow-hidden hover:border-hifi-yellow hover:shadow-xl transition-all duration-300">
-          <div class="p-8">
+        <!-- KARTU 1: HIFI (Aksen Pastel Yellow) -->
+        <div class="bg-white border-t-8 border-pastel-yellow rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between">
+          <div>
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-xl font-bold text-hifi-black">HiFi<br><span class="text-gray-500 font-normal">Standard</span></h3>
-              <div class="text-right">
-                <div class="text-4xl font-extrabold text-hifi-black">100</div>
-                <div class="text-sm font-bold text-hifi-black">Mbps</div>
+              <h3 class="text-xl font-bold text-brand-dark">HiFi<br><span class="text-gray-400 font-normal text-sm">Standard</span></h3>
+              <div class="text-right bg-yellow-50 px-3 py-1.5 rounded-2xl border border-yellow-100">
+                <div class="text-2xl font-extrabold text-brand-dark">100</div>
+                <div class="text-xs font-bold text-yellow-700">Mbps</div>
               </div>
             </div>
 
-            <div class="flex gap-2 mb-8 bg-gray-100 p-1.5 rounded-full text-xs font-semibold overflow-x-auto no-scrollbar">
-              <div class="bg-white shadow-sm rounded-full px-4 py-2 text-hifi-black whitespace-nowrap cursor-pointer">1 Bulan</div>
-              <div class="px-4 py-2 text-gray-500 whitespace-nowrap cursor-pointer">3 Bulan</div>
-              <div class="px-4 py-2 text-gray-500 whitespace-nowrap cursor-pointer">12 Bulan</div>
+            <div class="flex gap-2 mb-8 bg-gray-50 p-1.5 rounded-2xl text-xs font-semibold">
+              <div class="bg-white shadow-soft rounded-xl px-4 py-2 text-brand-dark text-center flex-1">1 Bulan</div>
+              <div class="px-4 py-2 text-gray-400 text-center flex-1">3 Bulan</div>
+              <div class="px-4 py-2 text-gray-400 text-center flex-1">12 Bulan</div>
             </div>
 
             <div class="mb-8">
-              <h4 class="text-sm font-bold text-hifi-black mb-4 uppercase tracking-wider">MANFAAT</h4>
-              <ul class="space-y-3 text-sm text-hifi-darkGray">
-                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-hifi-red mt-1"></i><span>Internet tanpa batas 100 Mbps</span></li>
-                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-hifi-red mt-1"></i><span>Gratis router Wi-Fi</span></li>
-                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-hifi-red mt-1"></i><span>Gratis Instalasi</span></li>
-                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-hifi-red mt-1"></i><span>Ideal hingga 10 perangkat.</span></li>
+              <h4 class="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider">Fasilitas & Keunggulan</h4>
+              <ul class="space-y-3 text-sm text-brand-text">
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-yellow-600 mt-1"></i><span>Internet tanpa batas 100 Mbps</span></li>
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-yellow-600 mt-1"></i><span>Gratis router Wi-Fi & Instalasi</span></li>
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-yellow-600 mt-1"></i><span>Ideal hingga 10 perangkat</span></li>
               </ul>
             </div>
+          </div>
 
-            <div class="mb-6">
-              <h4 class="text-sm font-bold text-hifi-black mb-1 uppercase tracking-wider">HARGA</h4>
-              <div class="text-2xl font-extrabold text-hifi-black">Rp199.000<span class="text-sm font-normal text-gray-500">/1 Month</span></div>
+          <div>
+            <div class="mb-6 pt-4 border-t border-gray-100">
+              <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Estimasi Harga</div>
+              <div class="text-2xl font-extrabold text-brand-dark">Rp199.000<span class="text-xs font-normal text-gray-400"> /bulan</span></div>
             </div>
 
-            <button type="button" onclick="openModal('HiFi Standard 100 Mbps', 'Rp199.000/1 Month')" class="w-full bg-hifi-yellow hover:bg-yellow-400 text-hifi-black font-bold py-4 rounded-xl transition-colors">
+            <button type="button" onclick="openModal('HiFi Standard 100 Mbps', 'Rp199.000/bulan')" class="w-full bg-pastel-yellow hover:bg-yellow-300 text-brand-dark font-bold py-4 rounded-2xl transition-all shadow-soft">
               Pilih Paket HiFi
             </button>
           </div>
         </div>
 
-        <!-- KARTU 2: CBN -->
-        <div class="bg-white border border-gray-200 rounded-[2rem] shadow-card overflow-hidden hover:border-hifi-yellow hover:shadow-xl transition-all duration-300">
-          <div class="p-8">
+        <!-- KARTU 2: CBN (Aksen Pastel Blue) -->
+        <div class="bg-white border-t-8 border-pastel-blue rounded-[2.5rem] shadow-card overflow-hidden hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between">
+          <div>
             <div class="flex justify-between items-center mb-6">
-              <h3 class="text-xl font-bold text-hifi-black">CBN<br><span class="text-gray-500 font-normal">Fiber Home</span></h3>
-              <div class="text-right">
-                <div class="text-4xl font-extrabold text-hifi-black">100</div>
-                <div class="text-sm font-bold text-hifi-black">Mbps</div>
+              <h3 class="text-xl font-bold text-brand-dark">CBN<br><span class="text-gray-400 font-normal text-sm">Fiber Home</span></h3>
+              <div class="text-right bg-blue-50 px-3 py-1.5 rounded-2xl border border-blue-100">
+                <div class="text-2xl font-extrabold text-brand-dark">100</div>
+                <div class="text-xs font-bold text-blue-700">Mbps</div>
               </div>
             </div>
 
-            <div class="flex gap-2 mb-8 bg-gray-100 p-1.5 rounded-full text-xs font-semibold overflow-x-auto no-scrollbar">
-              <div class="bg-white shadow-sm rounded-full px-4 py-2 text-hifi-black whitespace-nowrap cursor-pointer">1 Bulan</div>
-              <div class="px-4 py-2 text-gray-500 whitespace-nowrap cursor-pointer">6 Bulan</div>
-              <div class="px-4 py-2 text-gray-500 whitespace-nowrap cursor-pointer">12 Bulan</div>
+            <div class="flex gap-2 mb-8 bg-gray-50 p-1.5 rounded-2xl text-xs font-semibold">
+              <div class="bg-white shadow-soft rounded-xl px-4 py-2 text-brand-dark text-center flex-1">1 Bulan</div>
+              <div class="px-4 py-2 text-gray-400 text-center flex-1">6 Bulan</div>
+              <div class="px-4 py-2 text-gray-400 text-center flex-1">12 Bulan</div>
             </div>
 
             <div class="mb-8">
-              <h4 class="text-sm font-bold text-hifi-black mb-4 uppercase tracking-wider">MANFAAT</h4>
-              <ul class="space-y-3 text-sm text-hifi-darkGray">
-                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-600 mt-1"></i><span>Simetris Upload & Download Stabil</span></li>
-                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-600 mt-1"></i><span>Diskon 85% Trend Micro Security</span></li>
-                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-600 mt-1"></i><span>Gratis Modem Wi-Fi</span></li>
-                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-600 mt-1"></i><span>Customer Care 24/7</span></li>
+              <h4 class="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider">Fasilitas & Keunggulan</h4>
+              <ul class="space-y-3 text-sm text-brand-text">
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1"></i><span>Simetris Upload & Download Stabil</span></li>
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1"></i><span>Diskon spesial Trend Micro</span></li>
+                <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1"></i><span>Customer Care 24/7</span></li>
               </ul>
             </div>
+          </div>
 
-            <div class="mb-6">
-              <h4 class="text-sm font-bold text-hifi-black mb-1 uppercase tracking-wider">HARGA</h4>
-              <div class="text-2xl font-extrabold text-hifi-black">Rp229.000<span class="text-sm font-normal text-gray-500">/1 Month</span></div>
+          <div>
+            <div class="mb-6 pt-4 border-t border-gray-100">
+              <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Estimasi Harga</div>
+              <div class="text-2xl font-extrabold text-brand-dark">Rp229.000<span class="text-xs font-normal text-gray-400"> /bulan</span></div>
             </div>
 
-            <button type="button" onclick="openModal('CBN Fiber Home 100 Mbps', 'Rp229.000/1 Month')" class="w-full bg-hifi-yellow hover:bg-yellow-400 text-hifi-black font-bold py-4 rounded-xl transition-colors">
+            <button type="button" onclick="openModal('CBN Fiber Home 100 Mbps', 'Rp229.000/bulan')" class="w-full bg-pastel-blue hover:bg-blue-200 text-brand-dark font-bold py-4 rounded-2xl transition-all shadow-soft">
               Pilih Paket CBN
             </button>
           </div>
         </div>
 
-        <!-- KARTU 3 (Bantuan Cek Coverage) -->
-        <div class="bg-white border-2 border-dashed border-gray-300 rounded-[2rem] overflow-hidden flex flex-col justify-center items-center text-center p-8 hover:border-hifi-black transition-all">
-          <div class="w-20 h-20 bg-gray-100 rounded-full shadow-inner flex items-center justify-center text-3xl text-hifi-red mb-6">
-            <i class="fa-solid fa-headset"></i>
+        <!-- KARTU 3: Bantuan Cek Coverage (Aksen Pastel Mint/Green) -->
+        <div class="bg-white border-2 border-dashed border-pastel-green rounded-[2.5rem] overflow-hidden flex flex-col justify-between p-8 text-center shadow-card">
+          <div class="pt-4">
+            <div class="w-20 h-20 bg-emerald-50 rounded-3xl shadow-inner flex items-center justify-center text-3xl text-emerald-600 mx-auto mb-6 border border-emerald-100">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 class="text-2xl font-extrabold text-brand-dark mb-3">Bingung Pilih Provider?</h3>
+            <p class="text-sm text-gray-500 mb-8 leading-relaxed">
+              Kirimkan alamat Anda, tim kami akan bantu cek provider mana saja yang sudah tercover di titik lokasi rumah Anda.
+            </p>
           </div>
-          <h3 class="text-2xl font-extrabold text-hifi-black mb-3">Butuh bantuan?</h3>
-          <p class="text-sm text-gray-500 mb-8 leading-relaxed">
-            Tidak yakin jaringan provider apa yang masuk ke area perumahan Anda? Hubungi kami untuk dibantu pengecekan secara gratis.
-          </p>
-          <a href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI,%20tolong%20bantu%20cek%20provider%20apa%20yang%20tersedia%20di%20alamat%20saya." target="_blank" class="w-full border-2 border-hifi-black text-hifi-black hover:bg-hifi-black hover:text-white font-bold py-4 rounded-xl transition-colors flex justify-center items-center gap-2">
-            <i class="fa-brands fa-whatsapp text-lg"></i> Cek Coverage Saya
+          <a href="https://wa.me/6281214141914?text=Halo%20PUSAT%20WIFI,%20tolong%20bantu%20cek%20provider%20apa%20yang%20tersedia%20di%20alamat%20saya." target="_blank" class="w-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-900 font-bold py-4 rounded-2xl transition-all flex justify-center items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg text-green-600"></i> Cek Coverage Sekarang
           </a>
         </div>
 
@@ -272,119 +288,102 @@
   <section id="cara-kerja" class="py-20 bg-white border-y border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-hifi-black mb-2">Cara Berlangganan</h2>
-        <p class="text-gray-600">Sederhana, mulai dari pengecekan lokasi Anda</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-2">Cara Berlangganan</h2>
+        <p class="text-gray-500">Proses cepat dan mudah langsung dibantu via WhatsApp</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-        <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -z-10 -translate-y-10"></div>
+        <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-100 -z-10 -translate-y-10"></div>
 
-        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
-          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">1</div>
-          <h3 class="font-bold text-hifi-black mb-2">Pilih Provider</h3>
-          <p class="text-xs text-gray-500">Lihat paket internet dari berbagai provider yang tersedia di PUSAT WIFI.</p>
+        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-soft text-center relative hover:-translate-y-1 transition-transform">
+          <div class="w-16 h-16 bg-pastel-yellow rounded-2xl flex items-center justify-center text-2xl font-bold text-brand-dark mx-auto mb-4 shadow-soft">1</div>
+          <h3 class="font-bold text-brand-dark mb-2">Pilih Provider</h3>
+          <p class="text-xs text-gray-500">Tentukan pilihan paket atau minta rekomendasi terbaik dari kami.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
-          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">2</div>
-          <h3 class="font-bold text-hifi-black mb-2">Kirim Data WA</h3>
-          <p class="text-xs text-gray-500">Hubungi kami via WhatsApp untuk mengirimkan shareloc dan alamat lengkap.</p>
+        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-soft text-center relative hover:-translate-y-1 transition-transform">
+          <div class="w-16 h-16 bg-pastel-blue rounded-2xl flex items-center justify-center text-2xl font-bold text-brand-dark mx-auto mb-4 shadow-soft">2</div>
+          <h3 class="font-bold text-brand-dark mb-2">Kirim Data WA</h3>
+          <p class="text-xs text-gray-500">Kirimkan shareloc dan alamat lengkap Anda ke nomor WhatsApp kami.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
-          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">3</div>
-          <h3 class="font-bold text-hifi-black mb-2">Cek Coverage</h3>
-          <p class="text-xs text-gray-500">Kami akan memvalidasi apakah jaringan fiber provider tersebut menjangkau rumah Anda.</p>
+        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-soft text-center relative hover:-translate-y-1 transition-transform">
+          <div class="w-16 h-16 bg-pastel-purple rounded-2xl flex items-center justify-center text-2xl font-bold text-brand-dark mx-auto mb-4 shadow-soft">3</div>
+          <h3 class="font-bold text-brand-dark mb-2">Cek Coverage</h3>
+          <p class="text-xs text-gray-500">Kami cek validasi jangkauan jaringan fiber optik di lokasi Anda.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
-          <div class="w-16 h-16 bg-hifi-yellow rounded-full flex items-center justify-center text-2xl font-bold text-hifi-black mx-auto mb-4 border-4 border-white shadow-sm">4</div>
-          <h3 class="font-bold text-hifi-black mb-2">Pemasangan</h3>
-          <p class="text-xs text-gray-500">Jika tersedia, teknisi ISP resmi akan datang untuk instalasi dan pemasangan router.</p>
+        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-soft text-center relative hover:-translate-y-1 transition-transform">
+          <div class="w-16 h-16 bg-pastel-green rounded-2xl flex items-center justify-center text-2xl font-bold text-brand-dark mx-auto mb-4 shadow-soft">4</div>
+          <h3 class="font-bold text-brand-dark mb-2">Pemasangan</h3>
+          <p class="text-xs text-gray-500">Teknisi resmi datang ke rumah untuk instalasi perangkat internet.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION KEMITRAAN / FREELANCE -->
-  <section id="kemitraan" class="py-16 bg-hifi-red text-white relative overflow-hidden">
-    <div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-    <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-black/20 rounded-full blur-3xl"></div>
-    
+  <!-- PROGRAM KEMITRAAN (SOFT GRADIENT PASTEL) -->
+  <section id="kemitraan" class="py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-y border-purple-100 relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-        <i class="fa-solid fa-handshake text-3xl text-hifi-yellow"></i>
+      <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-soft border border-purple-100">
+        <i class="fa-solid fa-handshake text-2xl text-purple-600"></i>
       </div>
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Program Mitra Freelance</h2>
-      <p class="mb-8 text-white/90 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
-        PUSAT WIFI membuka peluang bagi Anda yang ingin menjadi <strong>Mitra Akuisisi / Agen Freelance</strong> di berbagai kota di seluruh Indonesia. Rekomendasikan layanan internet kepada klien Anda dan dapatkan komisi menarik untuk setiap pemasangan yang berhasil.
+      <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Program Mitra Freelance</h2>
+      <p class="mb-8 text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+        Ingin mendapat penghasilan tambahan? Bergabunglah menjadi <strong>Mitra Akuisisi / Agen Freelance</strong> PUSAT WIFI. Dapatkan komisi menarik di setiap pemasangan internet yang berhasil.
       </p>
-      <a href="https://wa.me/6281214141914?text=Halo%20Admin,%20saya%20tertarik%20bergabung%20menjadi%20mitra%20freelance%20PUSAT%20WIFI.%20Mohon%20info%20syarat%20dan%20ketentuannya." target="_blank" class="bg-hifi-yellow hover:bg-yellow-400 text-hifi-black font-bold py-3.5 px-8 rounded-xl transition-colors shadow-lg inline-flex items-center gap-2">
-        <i class="fa-brands fa-whatsapp text-xl"></i> Gabung Jadi Mitra Sekarang
+      <a href="https://wa.me/6281214141914?text=Halo%20Admin,%20saya%20tertarik%20bergabung%20menjadi%20mitra%20freelance%20PUSAT%20WIFI.%20Mohon%20info%20syarat%20dan%20ketentuannya." target="_blank" class="bg-brand-dark hover:bg-slate-800 text-white font-bold py-3.5 px-8 rounded-2xl transition-all shadow-soft inline-flex items-center gap-2">
+        <i class="fa-brands fa-whatsapp text-xl text-green-400"></i> Gabung Jadi Mitra Sekarang
       </a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-hifi-black text-white pt-16 pb-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-800 pb-12 mb-8">
+  <footer class="bg-brand-dark text-white pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-slate-800 pb-12 mb-8">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
         
-        <!-- Kolom Logo & Deskripsi -->
         <div class="md:col-span-5">
-          <div class="text-2xl font-extrabold tracking-tighter text-white mb-6 flex items-center">
-            PUSAT<span class="text-hifi-red">WIFI</span>
-            <span class="bg-hifi-yellow text-hifi-black px-2 py-0.5 rounded-lg ml-2 shadow-sm tracking-normal">INDONESIA</span>
+          <div class="text-2xl font-extrabold tracking-tight text-white mb-6 flex items-center">
+            PUSAT<span class="text-pastel-red">WIFI</span>
+            <span class="bg-pastel-yellow text-brand-dark px-2.5 py-0.5 rounded-xl ml-2 text-sm shadow-soft tracking-normal font-bold">INDONESIA</span>
           </div>
-          <p class="text-sm text-gray-400 leading-relaxed mb-6">
-            Mitra pendaftaran provider internet rumah terpercaya. Kami membantu mengecek dan menghubungkan Anda dengan layanan koneksi paling andal di area Anda sekaligus membuka peluang kemitraan freelance.
+          <p class="text-sm text-slate-400 leading-relaxed mb-6">
+            Mitra pendaftaran provider internet rumah terpercaya. Kami membantu mengecek dan menghubungkan Anda dengan koneksi paling andal di area Anda.
           </p>
         </div>
 
-        <!-- Kolom Menu Navigasi -->
         <div class="md:col-span-3">
-          <h4 class="font-bold mb-6 text-white text-lg border-b border-gray-800 pb-2 inline-block">Main Menu</h4>
-          <ul class="space-y-4 text-sm text-gray-400">
-            <li><a href="#pilih-paket" class="hover:text-hifi-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Paket Internet</a></li>
-            <li><a href="#cara-kerja" class="hover:text-hifi-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Cara Berlangganan</a></li>
-            <li><a href="#kemitraan" class="hover:text-hifi-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Program Mitra</a></li>
+          <h4 class="font-bold mb-6 text-white text-base border-b border-slate-800 pb-2 inline-block">Navigasi</h4>
+          <ul class="space-y-3 text-sm text-slate-400">
+            <li><a href="#pilih-paket" class="hover:text-pastel-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Paket Internet</a></li>
+            <li><a href="#cara-kerja" class="hover:text-pastel-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Cara Berlangganan</a></li>
+            <li><a href="#kemitraan" class="hover:text-pastel-yellow transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Program Mitra</a></li>
           </ul>
         </div>
 
-        <!-- Kolom Kontak -->
         <div class="md:col-span-4">
-          <h4 class="font-bold mb-6 text-white text-lg border-b border-gray-800 pb-2 inline-block">Hubungi Kami</h4>
-          <ul class="space-y-5">
+          <h4 class="font-bold mb-6 text-white text-base border-b border-slate-800 pb-2 inline-block">Hubungi Kami</h4>
+          <ul class="space-y-4">
             <li>
               <a href="https://wa.me/6281214141914" target="_blank" class="flex items-center gap-4 group">
-                <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-green-500 transition-colors">
+                <div class="w-10 h-10 rounded-2xl bg-slate-800 flex items-center justify-center group-hover:bg-green-500 transition-colors">
                   <i class="fa-brands fa-whatsapp text-xl text-white"></i>
                 </div>
                 <div>
-                  <div class="text-xs text-gray-400">WhatsApp</div>
-                  <div class="font-bold text-white group-hover:text-hifi-yellow transition-colors">0812-1414-1914</div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="https://t.me/+6281214141914" target="_blank" class="flex items-center gap-4 group">
-                <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
-                  <i class="fa-brands fa-telegram text-xl text-white"></i>
-                </div>
-                <div>
-                  <div class="text-xs text-gray-400">Telegram</div>
-                  <div class="font-bold text-white group-hover:text-hifi-yellow transition-colors">0812-1414-1914</div>
+                  <div class="text-xs text-slate-400">WhatsApp</div>
+                  <div class="font-bold text-white group-hover:text-pastel-yellow transition-colors">0812-1414-1914</div>
                 </div>
               </a>
             </li>
             <li>
               <a href="mailto:pusatwifiindonesia@gmail.com" class="flex items-center gap-4 group">
-                <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-hifi-red transition-colors">
+                <div class="w-10 h-10 rounded-2xl bg-slate-800 flex items-center justify-center group-hover:bg-red-500 transition-colors">
                   <i class="fa-solid fa-envelope text-xl text-white"></i>
                 </div>
                 <div>
-                  <div class="text-xs text-gray-400">Email</div>
-                  <div class="font-bold text-white text-sm group-hover:text-hifi-yellow transition-colors">pusatwifiindonesia@gmail.com</div>
+                  <div class="text-xs text-slate-400">Email</div>
+                  <div class="font-bold text-white text-sm group-hover:text-pastel-yellow transition-colors">pusatwifiindonesia@gmail.com</div>
                 </div>
               </a>
             </li>
@@ -393,30 +392,30 @@
 
       </div>
     </div>
-    <div class="text-center text-xs text-gray-500 max-w-7xl mx-auto px-4">
+    <div class="text-center text-xs text-slate-500 max-w-7xl mx-auto px-4">
       &copy; 2026 PUSATWIFI INDONESIA. Hak Cipta Dilindungi Undang-Undang.
     </div>
   </footer>
 
   <!-- MODAL POP-UP WA -->
-  <div id="promoModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-[2rem] max-w-sm w-full p-8 relative shadow-2xl animate-fade-in-up">
-      <button type="button" onclick="closeModal()" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors">
+  <div id="promoModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-[2.5rem] max-w-sm w-full p-8 relative shadow-2xl animate-fade-in-up border border-gray-100">
+      <button type="button" onclick="closeModal()" class="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors">
         <i class="fa-solid fa-xmark"></i>
       </button>
       <div class="text-center mb-6 pt-2">
-        <h3 class="text-2xl font-extrabold text-hifi-black">Konfirmasi</h3>
+        <h3 class="text-2xl font-extrabold text-brand-dark">Konfirmasi</h3>
         <p class="text-sm text-gray-500 mt-1">Anda memilih paket:</p>
       </div>
-      <div class="bg-hifi-gray p-5 rounded-2xl border border-gray-200 mb-6 text-center">
-        <div id="modalPackageName" class="text-lg font-bold text-hifi-black mb-1">-</div>
-        <div id="modalPackagePrice" class="text-sm font-semibold text-hifi-red">-</div>
+      <div class="bg-brand-bg p-5 rounded-2xl border border-gray-100 mb-6 text-center">
+        <div id="modalPackageName" class="text-base font-bold text-brand-dark mb-1">-</div>
+        <div id="modalPackagePrice" class="text-sm font-semibold text-purple-600">-</div>
       </div>
       <div class="space-y-3">
-        <a id="modalWaBtn" href="#" target="_blank" class="w-full bg-hifi-yellow hover:bg-yellow-400 text-hifi-black py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-colors">
-          <i class="fa-brands fa-whatsapp text-lg"></i> Cek Coverage via WA
+        <a id="modalWaBtn" href="#" target="_blank" class="w-full bg-pastel-yellow hover:bg-yellow-200 text-brand-dark py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-soft">
+          <i class="fa-brands fa-whatsapp text-lg text-green-600"></i> Lanjut Cek Coverage via WA
         </a>
-        <button type="button" onclick="closeModal()" class="w-full bg-transparent hover:bg-gray-100 text-gray-500 py-3 rounded-xl font-semibold text-sm transition-colors">
+        <button type="button" onclick="closeModal()" class="w-full bg-transparent hover:bg-gray-50 text-gray-400 py-3 rounded-2xl font-semibold text-sm transition-colors">
           Batal
         </button>
       </div>
@@ -425,7 +424,6 @@
 
   <!-- SCRIPT CAROUSEL DAN MODAL -->
   <script>
-    /* ---- LOGIKA CAROUSEL SLIDER ---- */
     const slider = document.getElementById('slider');
     const dots = document.querySelectorAll('.slider-dot');
     
@@ -436,11 +434,11 @@
       
       dots.forEach((dot, i) => {
         if (i === index) {
-          dot.classList.add('bg-hifi-yellow', 'w-6');
-          dot.classList.remove('bg-white/60', 'w-2');
+          dot.classList.add('bg-pastel-yellow', 'w-6');
+          dot.classList.remove('bg-white/70', 'w-2');
         } else {
-          dot.classList.remove('bg-hifi-yellow', 'w-6');
-          dot.classList.add('bg-white/60', 'w-2');
+          dot.classList.remove('bg-pastel-yellow', 'w-6');
+          dot.classList.add('bg-white/70', 'w-2');
         }
       });
     });
@@ -461,7 +459,6 @@
     slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
     slider.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 4000));
 
-    /* ---- DRAG TO SCROLL UNTUK DESKTOP ---- */
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -493,7 +490,6 @@
       slider.scrollLeft = scrollLeft - walk;
     });
 
-    /* ---- LOGIKA MODAL POP-UP ---- */
     function openModal(packageName, packagePrice) {
       document.getElementById('modalPackageName').innerText = packageName;
       document.getElementById('modalPackagePrice').innerText = packagePrice;
