@@ -96,12 +96,12 @@
     </div>
   </header>
 
-  <!-- HERO SECTION (Diadaptasi dari Desain PDF) -->
-  <section class="pt-32 pb-12 bg-white text-center px-4 md:px-8 max-w-5xl mx-auto">
+  <!-- HERO SECTION -->
+  <section class="pt-32 pb-8 bg-white text-center px-4 md:px-8 max-w-5xl mx-auto">
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-hifi-black mb-6 tracking-tight leading-tight">
       Temukan Provider Internet<br class="hidden md:block"> Dalam Satu Tempat.
     </h1>
-    <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
+    <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
       Pilih provider yang tersedia, lalu hubungi PUSAT WIFI untuk membantu proses pengecekan coverage secara akurat berdasarkan lokasi pemasangan.
     </p>
     <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -114,31 +114,35 @@
     </div>
   </section>
 
-  <!-- THUMBNAIL CAROUSEL (3 SLIDE PROMO DARI LOKAL) -->
-  <section class="relative w-full h-[250px] sm:h-[400px] md:h-[500px] overflow-hidden bg-gray-100 group select-none">
-    <!-- Slider Container -->
-    <div id="slider" class="flex w-full h-full snap-x snap-mandatory overflow-x-auto no-scrollbar scroll-smooth cursor-grab">
+  <!-- THUMBNAIL CAROUSEL (Dioptimalkan Full Width & Center Focus) -->
+  <section class="relative w-full max-w-7xl mx-auto px-0 sm:px-4 md:px-8 py-4">
+    <div class="relative w-full h-[220px] sm:h-[350px] md:h-[450px] rounded-none sm:rounded-2xl overflow-hidden bg-gray-900 group select-none shadow-md">
       
-      <!-- Slide 1 -->
-      <div class="w-full h-full flex-shrink-0 snap-center relative">
-        <img src="assets/slide-cbn-1.png" draggable="false" alt="Promo CBN" class="w-full h-full object-cover md:object-contain bg-white pointer-events-none">
-      </div>
-      <!-- Slide 2 -->
-      <div class="w-full h-full flex-shrink-0 snap-center relative">
-        <img src="assets/slide-hifi-2.png" draggable="false" alt="Promo HiFi" class="w-full h-full object-cover md:object-contain bg-white pointer-events-none">
-      </div>
-      <!-- Slide 3 -->
-      <div class="w-full h-full flex-shrink-0 snap-center relative">
-        <img src="assets/slide-link-3.png" draggable="false" alt="Promo Provider Lain" class="w-full h-full object-cover md:object-contain bg-white pointer-events-none">
+      <!-- Slider Container -->
+      <div id="slider" class="flex w-full h-full snap-x snap-mandatory overflow-x-auto no-scrollbar scroll-smooth cursor-grab">
+        
+        <!-- Slide 1 (-1) -->
+        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
+          <img src="assets/slide-cbn-1.png" draggable="false" alt="Promo CBN" class="w-full h-full object-cover object-center pointer-events-none">
+        </div>
+        <!-- Slide 2 (-2) -->
+        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
+          <img src="assets/slide-hifi-2.png" draggable="false" alt="Promo HiFi" class="w-full h-full object-cover object-center pointer-events-none">
+        </div>
+        <!-- Slide 3 (-3) -->
+        <div class="w-full h-full flex-shrink-0 snap-center relative flex items-center justify-center bg-black">
+          <img src="assets/slide-link-3.png" draggable="false" alt="Promo Provider Lain" class="w-full h-full object-cover object-center pointer-events-none">
+        </div>
+
       </div>
 
-    </div>
+      <!-- Dots Indicator (3 Dots) -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full" id="slider-dots">
+        <button class="slider-dot w-6 h-2 rounded-full bg-hifi-yellow transition-all duration-300"></button>
+        <button class="slider-dot w-2 h-2 rounded-full bg-white/60 hover:bg-white transition-all duration-300"></button>
+        <button class="slider-dot w-2 h-2 rounded-full bg-white/60 hover:bg-white transition-all duration-300"></button>
+      </div>
 
-    <!-- Dots Indicator (3 Dots) -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="slider-dots">
-      <button class="slider-dot w-6 h-2 rounded-full bg-hifi-yellow transition-all duration-300"></button>
-      <button class="slider-dot w-2 h-2 rounded-full bg-black/30 hover:bg-black/60 transition-all duration-300"></button>
-      <button class="slider-dot w-2 h-2 rounded-full bg-black/30 hover:bg-black/60 transition-all duration-300"></button>
     </div>
   </section>
 
@@ -261,7 +265,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-        <!-- Connecting Line (Desktop) -->
         <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -z-10 -translate-y-10"></div>
 
         <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-card text-center relative hover:-translate-y-1 transition-transform">
@@ -291,9 +294,8 @@
     </div>
   </section>
 
-  <!-- SECTION KEMITRAAN / FREELANCE (BARU) -->
+  <!-- SECTION KEMITRAAN / FREELANCE -->
   <section id="kemitraan" class="py-16 bg-hifi-red text-white relative overflow-hidden">
-    <!-- Ornamen Background -->
     <div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
     <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-black/20 rounded-full blur-3xl"></div>
     
@@ -415,30 +417,26 @@
     const slider = document.getElementById('slider');
     const dots = document.querySelectorAll('.slider-dot');
     
-    // Fungsi update dot saat di-scroll
     slider.addEventListener('scroll', () => {
       const scrollPos = slider.scrollLeft;
       const slideWidth = slider.offsetWidth;
-      // Perbaikan pembulatan untuk memastikan index akurat
       const index = Math.min(Math.max(Math.round(scrollPos / slideWidth), 0), 2);
       
       dots.forEach((dot, i) => {
         if (i === index) {
           dot.classList.add('bg-hifi-yellow', 'w-6');
-          dot.classList.remove('bg-black/30', 'w-2');
+          dot.classList.remove('bg-white/60', 'w-2');
         } else {
           dot.classList.remove('bg-hifi-yellow', 'w-6');
-          dot.classList.add('bg-black/30', 'w-2');
+          dot.classList.add('bg-white/60', 'w-2');
         }
       });
     });
 
-    // Auto-scroll Carousel tiap 4 detik
     let autoSlide = setInterval(nextSlide, 4000);
     function nextSlide() {
       const slideWidth = slider.offsetWidth;
       const maxScroll = slider.scrollWidth - slideWidth;
-      // Jika mentok kanan, kembali ke kiri
       if (slider.scrollLeft >= maxScroll - 10) {
         slider.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
@@ -446,7 +444,6 @@
       }
     }
 
-    // Pause auto-slide saat berinteraksi
     slider.addEventListener('touchstart', () => clearInterval(autoSlide));
     slider.addEventListener('touchend', () => autoSlide = setInterval(nextSlide, 4000));
     slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
