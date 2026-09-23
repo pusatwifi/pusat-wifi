@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CBN Fiber - Ultimate Quantum Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+        @property --time {
+            syntax: '<number>';
+            initial-value: 0;
+            inherits: false;
+        }
+
+        @keyframes quantumFloat {
+            0% { --time: 0; }
+            100% { --time: 6.28; }
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            overflow: hidden; font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #020617; -webkit-font-smoothing: antialiased;
+        }
+
+        .quantum-stage {
+            position: relative; width: 100vw; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            perspective: 1600px; animation: quantumFloat 5s infinite linear;
+        }
+
+        .quantum-card {
+            width: 100%; max-width: 420px;
+            background: rgba(11, 18, 32, 0.94);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(14, 116, 144, 0.25);
+            border-radius: 2.2rem; overflow: hidden;
+            will-change: transform;
+            transform: translate3d(0, calc(sin(var(--time)) * 6px), 0) 
+                       rotateX(calc(var(--mouse-y, 0) * -10deg)) 
+                       rotateY(calc(var(--mouse-x, 0) * 10deg));
+            transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .package-row {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.12);
+            transition: all 0.2s ease;
+        }
+        .package-row:hover {
+            background: rgba(30, 41, 59, 0.95);
+            border-color: rgba(56, 189, 248, 0.5);
+            transform: scale(1.015);
+        }
+
+        /* Custom Scrollbar untuk Paket */
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5);
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(56, 189, 248, 0.3);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body id="stageBody">
+
+    <div class="quantum-stage">
+        <div class="quantum-card flex flex-col">
+            
+            <!-- FOTO & UPLOAD INTERAKTIF (DIPERBAIKI) -->
+            <div id="photoContainer" class="relative w-full h-[230px] bg-slate-900 overflow-hidden border-b border-sky-500/20 cursor-pointer group" title="Ketuk untuk ganti foto">
+                <img id="userPhoto" src="" alt="Portrait" class="w-full h-full object-cover object-center filter contrast-105 brightness-105 transition-transform duration-500 group-hover:scale-105">
+                
+                <div id="uploadHint" class="absolute inset-0 bg-slate-950/85 flex flex-col items-center justify-center text-center p-4">
+                    <span class="text-3xl mb-1">📸</span>
+                    <p class="text-xs font-bold text-sky-300">Ketuk di sini untuk Unggah Foto Anda</p>
+                    <p class="text-[9px] text-slate-400 mt-1">Mendukung format JPG, PNG, WEBP</p>
+                </div>
+                <input type="file" id="fileInput" accept="image/*" class="hidden">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none"></div>
+
+                <div class="absolute top-3 left-3 bg-slate-950/90 px-3 py-1 rounded-full border border-sky-500/30 flex items-center gap-2 shadow-md pointer-events-none">
+                    <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                    <span class="text-[9px] font-bold text-sky-300 tracking-wider">ULTIMATE PROFILE</span>
+                </div>
+
+                <div class="absolute bottom-2.5 left-4 right-4 text-center pointer-events-none">
+                    <h1 class="text-white font-extrabold text-sm md:text-base tracking-wide uppercase">CBN FIBER INTERNET</h1>
+                    <p class="text-[10px] text-sky-200 font-medium">Koneksi Super Cepat & Stabil Tanpa Batas</p>
+                </div>
+            </div>
+
+            <!-- MENU SLIDER / TAB KATEGORI -->
+            <div class="px-3.5 pt-3 bg-slate-950/95">
+                <div class="flex bg-slate-900 p-1 rounded-xl border border-sky-500/20 shadow-inner">
+                    <button onclick="switchCategory('internet')" id="btnInternet" class="flex-1 py-1.5 text-[10px] font-bold rounded-lg bg-sky-600 text-white shadow-sm transition-all">Internet Only</button>
+                    <button onclick="switchCategory('bundle')" id="btnBundle" class="flex-1 py-1.5 text-[10px] font-bold rounded-lg text-slate-400 hover:text-white transition-all">Bundle Drama & TV</button>
+                </div>
+            </div>
+
+            <!-- DAFTAR PAKET (BANYAK PILIHAN & CUSTOM SCROLL) -->
+            <div id="packageListContainer" class="p-3.5 space-y-2 bg-slate-950/95 max-h-[220px] overflow-y-auto custom-scroll">
+                <!-- Konten Paket akan dimuat dinamis lewat JavaScript -->
+            </div>
+
+            <!-- PROMO & KONTAK -->
+            <div class="p-2.5 bg-slate-900 border-t border-sky-500/20 text-center">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold text-[9.5px] py-1.5 rounded-lg mb-1.5 shadow-sm">« INFO PROMO MENARIK LAINNYA »</div>
+                <div class="flex items-center justify-between text-slate-200 text-[9px] px-2 font-bold">
+                    <span>💬 0812-1414-1914</span>
+                    <span>✈️ 0812-1414-1914</span>
+                    <span>🌐 pusat-wifi</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SCRIPT APLIKASI INTERAKTIF -->
+    <script>
+        const body = document.getElementById('stageBody');
+        const photoContainer = document.getElementById('photoContainer');
+        const userPhoto = document.getElementById('userPhoto');
+        const uploadHint = document.getElementById('uploadHint');
+        const fileInput = document.getElementById('fileInput');
+        const packageListContainer = document.getElementById('packageListContainer');
+
+        // Data Paket yang Lebih Kaya & Lengkap
+        const packagesData = {
+            internet: [
+                { badge: "TOP", badgeColor: "bg-red-600", name: "FIBER 20", desc: "Internet Only", speed: "40 Mbps", price: "193.140" },
+                { badge: "PRO", badgeColor: "bg-sky-600", name: "FIBER 50", desc: "Internet Only", speed: "75 Mbps", price: "209.790" },
+                { badge: "BEST", badgeColor: "bg-amber-500", name: "Fiber 100 New", desc: "Internet Only", speed: "150 Mbps", price: "226.440" },
+                { badge: "ULTRA", badgeColor: "bg-purple-600", name: "Fiber 300", desc: "Gamer & Streamer", speed: "300 Mbps", price: "359.000" }
+            ],
+            bundle: [
+                { badge: "HOT", badgeColor: "bg-rose-600", name: "FIBER 20 + DRAMA", desc: "Free TV Apps", speed: "40 Mbps", price: "219.000" },
+                { badge: "FAV", badgeColor: "bg-indigo-600", name: "FIBER 50 + ENTERTAINMENT", desc: "Complete Channels", speed: "75 Mbps", price: "265.000" },
+                { badge: "MAX", badgeColor: "bg-emerald-600", name: "Fiber 100 + FAMILY TV", desc: "All-in-One Package", speed: "150 Mbps", price: "310.000" }
+            ]
+        };
+
+        function renderPackages(category) {
+            let html = `
+                <div class="grid grid-cols-12 bg-sky-600 text-white text-[9.5px] font-bold uppercase py-1.5 px-2.5 rounded-lg text-center shadow-sm">
+                    <div class="col-span-4 text-left">PAKET</div>
+                    <div class="col-span-4">KECEPATAN</div>
+                    <div class="col-span-4 text-right">HARGA / BLN</div>
+                </div>
+            `;
+            
+            packagesData[category].forEach(pkg => {
+                html += `
+                    <div class="grid grid-cols-12 items-center package-row p-2 rounded-xl text-white">
+                        <div class="col-span-4 relative pl-5">
+                            <span class="absolute left-0 top-1/2 -translate-y-1/2 ${pkg.badgeColor} text-white text-[6.5px] font-bold px-1 py-0.5 rounded">${pkg.badge}</span>
+                            <p class="text-[10.5px] font-bold text-white leading-tight">${pkg.name}</p>
+                            <p class="text-[8px] text-slate-300">${pkg.desc}</p>
+                        </div>
+                        <div class="col-span-4 flex justify-center">
+                            <div class="bg-sky-700 text-white font-bold text-[10px] px-2 py-0.5 rounded-md">${pkg.speed}</div>
+                        </div>
+                        <div class="col-span-4 text-right">
+                            <span class="text-[8.5px] text-slate-300">Rp.</span>
+                            <span class="text-[10.5px] font-bold text-sky-200">${pkg.price}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            packageListContainer.innerHTML = html;
+        }
+
+        function switchCategory(cat) {
+            const btnInternet = document.getElementById('btnInternet');
+            const btnBundle = document.getElementById('btnBundle');
+            
+            if(cat === 'internet') {
+                btnInternet.className = "flex-1 py-1.5 text-[10px] font-bold rounded-lg bg-sky-600 text-white shadow-sm transition-all";
+                btnBundle.className = "flex-1 py-1.5 text-[10px] font-bold rounded-lg text-slate-400 hover:text-white transition-all";
+            } else {
+                btnBundle.className = "flex-1 py-1.5 text-[10px] font-bold rounded-lg bg-sky-600 text-white shadow-sm transition-all";
+                btnInternet.className = "flex-1 py-1.5 text-[10px] font-bold rounded-lg text-slate-400 hover:text-white transition-all";
+            }
+            renderPackages(cat);
+        }
+
+        // Inisialisasi default
+        renderPackages('internet');
+
+        // Handler Upload Foto via FileReader (Anti-Gagal)
+        photoContainer.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    userPhoto.src = event.target.result;
+                    uploadHint.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Contoh set default placeholder foto jika belum upload (bisa diganti URL foto bawaan Anda)
+        userPhoto.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80";
+        uploadHint.style.display = 'none';
+
+        // Sensor Gerakan Kursor/Sentuhan
+        window.addEventListener('mousemove', (e) => {
+            let x = (e.clientX / window.innerWidth - 0.5) * 2;
+            let y = (e.clientY / window.innerHeight - 0.5) * 2;
+            body.style.setProperty('--mouse-x', x);
+            body.style.setProperty('--mouse-y', y);
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                let x = (e.touches[0].clientX / window.innerWidth - 0.5) * 2;
+                let y = (e.touches[0].clientY / window.innerHeight - 0.5) * 2;
+                body.style.setProperty('--mouse-x', x);
+                body.style.setProperty('--mouse-y', y);
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>
