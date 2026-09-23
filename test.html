@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id" x-data="{ 
-    theme: 'light', 
     activeTab: 'home',
     selectedPackage: null,
     customerName: '',
@@ -11,11 +10,8 @@
     aiChatOpen: false,
     chatMessage: '',
     chatLog: [
-        { sender: 'ai', text: 'Halo! Saya Aethel Concierge. Ada yang bisa saya bantu terkait pemilihan kecepatan wifi atau pengecekan area cakupan CBN?' }
+        { sender: 'ai', text: 'Halo! Saya Aethel AI Concierge. Ada yang bisa saya bantu terkait cek ketersediaan jaringan CBN atau hot promo internet rumah?' }
     ],
-    toggleTheme() {
-        this.theme = this.theme === 'light' ? 'dark' : 'light';
-    },
     sendChat() {
         if(!this.chatMessage.trim()) return;
         let userText = this.chatMessage;
@@ -23,18 +19,261 @@
         this.chatMessage = '';
         
         setTimeout(() => {
-            let reply = 'Sistem mendeteksi kebutuhan Anda. Untuk wilayah Surabaya, Sidoarjo, dan Gresik, jaringan CBN tercover penuh dengan kecepatan optimal.';
-            if(userText.toLowerCase().includes('area') || userText.toLowerCase().includes('cakupan') || userText.toLowerCase().includes('lokasi')) {
-                reply = 'Kami melayani 3 wilayah utama mitra CBN: Surabaya, Sidoarjo, dan Gresik. Anda bisa mengecek titik detailnya di menu Cakupan Area.';
+            let reply = 'Sistem mendeteksi kebutuhan Anda. Kami menyediakan hot promo internet rumah terbaik dari mitra resmi CBN dengan kecepatan stabil tanpa FUP.';
+            if(userText.toLowerCase().includes('area') || userText.toLowerCase().includes('cakupan') || userText.toLowerCase().includes('surabaya') || userText.toLowerCase().includes('sidoarjo') || userText.toLowerCase().includes('gresik')) {
+                reply = 'Kami melayani 3 wilayah utama mitra CBN: Surabaya, Sidoarjo, dan Gresik. Silakan cek menu Cakupan Area untuk detail petanya.';
             } else if(userText.toLowerCase().includes('murah') || userText.toLowerCase().includes('starter')) {
                 reply = 'Paket Starter Home (20 Mbps) seharga Rp250.000 sangat pas untuk penggunaan harian tanpa batasan kuota.';
+            } else if(userText.toLowerCase().includes('promo')) {
+                reply = 'Hot promo saat ini mencakup gratis instalasi perangkat dan prioritas pemasangan minggu ini.';
             }
             this.chatLog.push({ sender: 'ai', text: reply });
         }, 800);
     },
+    getWhatsAppLink() {
+        let msg = `Halo Pusat Wifi Indonesia, saya ingin cek ketersediaan jaringan & promo internet di lokasi saya.`;
+        return `https://wa.me/628123456789?text=${encodeURIComponent(msg)}`;
+    },
     getTelegramMessage() {
-        return `🔔 *TIKET PEMASANGAN BARU (AETHEL CBN)*\n\n` +
+        return `🔔 *TIKET PEMASANGAN BARU (PUSAT WIFI INDONESIA)*\n\n` +
                `👤 *Nama:* ${this.customerName}\n` +
+               `📱 *No HP:* ${this.customerPhone}\n` +
+               `📦 *Paket:* ${this.selectedPackage}\n` +
+               `📍 *Alamat:* ${this.customerAddress}\n` +
+               `📝 *Catatan:* ${this.customerNotes || '-'}\n\n` +
+               `_Status: Menunggu Konfirmasi Lapangan_`;
+    }
+}" class="bg-white text-slate-900 font-sans min-h-screen flex flex-col justify-between selection:bg-rose-500 selection:text-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Wifi Indonesia — Hot Promo All Provider Internet Rumah</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        macaron: {
+                            pink: '#ffd1dc',
+                            yellow: '#fdfd96',
+                            mint: '#b0e57c',
+                            lavender: '#e6e6fa',
+                            blue: '#aec6cf',
+                            cream: '#fffdf9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between bg-white text-slate-800">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="w-full border-b border-slate-100 bg-white/95 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Procedural SVG Logo -->
+            <div class="flex items-center space-x-2.5 cursor-pointer group" @click="activeTab = 'home'">
+                <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shadow-xs group-hover:scale-105 transition">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12.55a11 11 0 0 1 14.1-1"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                    <span class="font-black text-base tracking-tight text-slate-900">PUSAT <span class="text-rose-600">WIFI</span></span>
+                    <span class="text-[9px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-md uppercase tracking-wider">INDONESIA</span>
+                </div>
+            </div>
+
+            <!-- Navigation Links & Actions -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <button @click="activeTab = 'home'" :class="activeTab === 'home' ? 'text-rose-600 font-bold' : 'text-slate-600'" class="text-xs hover:text-rose-600 transition">Beranda</button>
+                <button @click="activeTab = 'packages'" :class="activeTab === 'packages' ? 'text-rose-600 font-bold' : 'text-slate-600'" class="text-xs hover:text-rose-600 transition">Hot Promo</button>
+                <button @click="activeTab = 'coverage'" :class="activeTab === 'coverage' ? 'text-rose-600 font-bold' : 'text-slate-600'" class="text-xs hover:text-rose-600 transition">Cakupan Area</button>
+                
+                <button @click="aiChatOpen = !aiChatOpen" class="px-3 py-1.5 rounded-full bg-rose-50 text-rose-600 text-xs font-semibold hover:bg-rose-100 transition flex items-center space-x-1.5 shadow-xs">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>AI Concierge</span>
+                </button>
+
+                <a :href="getWhatsAppLink()" target="_blank" class="p-2 rounded-xl bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.612-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-4xl mx-auto px-4 py-12 flex-grow w-full space-y-12">
+
+        <!-- HOME VIEW (TIRU 100% INDEX.HTML) -->
+        <div x-show="activeTab === 'home'" class="space-y-10">
+            <!-- Hero Banner -->
+            <div class="text-center space-y-6 max-w-2xl mx-auto pt-4">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 text-xs font-semibold bg-amber-50 text-amber-800 rounded-full border border-amber-200 shadow-xs">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                    <span>Pusat Layanan Hot Promo All Provider Internet Rumah</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                    Temukan Hot Promo Internet Terbaik Dalam Satu Tempat.
+                </h1>
+                
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Bandingkan dan pilih penawaran terbaik dari berbagai provider resmi. Hubungi kami untuk cek ketersediaan jaringan di lokasi Anda secara instan dan gratis!
+                </p>
+
+                <!-- Action Buttons Sesuai Index.html -->
+                <div class="pt-2 flex flex-col sm:flex-row justify-center gap-3">
+                    <a :href="getWhatsAppLink()" target="_blank" class="px-6 py-4 rounded-2xl bg-amber-300 hover:bg-amber-400 text-slate-900 font-bold text-xs transition shadow-md shadow-amber-300/20 flex items-center justify-center space-x-2">
+                        <span>💬 Cek Coverage via WhatsApp</span>
+                    </a>
+                    <button @click="activeTab = 'packages'" class="px-6 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">
+                        Lihat Hot Promo Pilihan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Procedural Feature Highlights -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100 shadow-xs space-y-2 text-center">
+                    <div class="w-10 h-10 mx-auto rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-lg">⚡</div>
+                    <h3 class="font-bold text-sm">Proses Cepat via WA</h3>
+                    <p class="text-xs text-slate-500">Respon instan untuk pengecekan port dan ketersediaan titik.</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100 shadow-xs space-y-2 text-center">
+                    <div class="w-10 h-10 mx-auto rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">📶</div>
+                    <h3 class="font-bold text-sm">All Provider Resmi</h3>
+                    <p class="text-xs text-slate-500">Pilihan jaringan fiber optik terbaik dan stabil tanpa batasan FUP.</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100 shadow-xs space-y-2 text-center">
+                    <div class="w-10 h-10 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg">🛡️</div>
+                    <h3 class="font-bold text-sm">Garansi Teknis</h3>
+                    <p class="text-xs text-slate-500">Didukung oleh tim teknisi lapangan profesional dan berpengalaman.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PACKAGES / HOT PROMO VIEW -->
+        <div x-show="activeTab === 'packages' || activeTab === 'home'" class="space-y-6 pt-6 border-t border-slate-100">
+            <div class="text-center space-y-1">
+                <h2 class="text-2xl font-extrabold">Hot Promo Pilihan</h2>
+                <p class="text-xs text-slate-500">Pilih paket terbaik untuk hunian dan bisnis Anda dengan harga spesial.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                <!-- Paket 1 -->
+                <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:border-rose-500 transition">
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-rose-600">Starter Home</div>
+                        <div class="text-3xl font-extrabold mt-2">Rp250k <span class="text-xs font-normal text-slate-500">/bln</span></div>
+                        <p class="text-xs text-slate-500 mt-1">Ideal untuk streaming & browsing harian.</p>
+                        <ul class="mt-6 space-y-2.5 text-xs text-slate-600">
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Kecepatan hingga 20 Mbps</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Unlimited Tanpa FUP</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Gratis Perangkat & Instalasi</span></li>
+                        </ul>
+                    </div>
+                    <button @click="selectedPackage = 'Starter Home (20 Mbps - Rp250k)'; activeTab = 'checkout'" class="mt-8 w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-2xl text-xs transition">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+
+                <!-- Paket 2 (Featured) -->
+                <div class="p-6 rounded-3xl bg-white border-2 border-rose-500 shadow-lg flex flex-col justify-between relative scale-105">
+                    <span class="absolute -top-3 right-5 bg-rose-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">Paling Laris</span>
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-rose-600">Family Pro</div>
+                        <div class="text-3xl font-extrabold mt-2">Rp350k <span class="text-xs font-normal text-slate-500">/bln</span></div>
+                        <p class="text-xs text-slate-500 mt-1">Sempurna untuk multi-perangkat & keluarga.</p>
+                        <ul class="mt-6 space-y-2.5 text-xs text-slate-600">
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Kecepatan hingga 50 Mbps</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Unlimited Tanpa FUP</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Prioritas Layanan Lapangan</span></li>
+                        </ul>
+                    </div>
+                    <button @click="selectedPackage = 'Family Pro (50 Mbps - Rp350k)'; activeTab = 'checkout'" class="mt-8 w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-2xl text-xs transition shadow-md shadow-rose-600/20">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:border-rose-500 transition">
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-rose-600">Business Elite</div>
+                        <div class="text-3xl font-extrabold mt-2">Rp600k <span class="text-xs font-normal text-slate-500">/bln</span></div>
+                        <p class="text-xs text-slate-500 mt-1">Performa tinggi untuk kantor & cafe.</p>
+                        <ul class="mt-6 space-y-2.5 text-xs text-slate-600">
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Kecepatan hingga 100 Mbps</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Dedicated Bandwidth Ratio</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Respon Teknis Kilat 2 Jam</span></li>
+                        </ul>
+                    </div>
+                    <button @click="selectedPackage = 'Business Elite (100 Mbps - Rp600k)'; activeTab = 'checkout'" class="mt-8 w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-2xl text-xs transition">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- COVERAGE AREA VIEW (CBN NETWORK + GOOGLE MAPS) -->
+        <div x-show="activeTab === 'coverage'" class="max-w-3xl mx-auto space-y-8">
+            <div class="text-center space-y-2">
+                <button @click="activeTab = 'home'" class="text-xs text-rose-600 font-bold inline-block mb-1">← Kembali ke Beranda</button>
+                <h2 class="text-3xl font-extrabold tracking-tight">Cakupan Wilayah Jaringan (CBN)</h2>
+                <p class="text-slate-600 text-sm max-w-lg mx-auto">
+                    Pusat Wifi Indonesia bermitra langsung dengan infrastruktur fiber optik CBN. Pilih wilayah Anda untuk memeriksa titik cakupan peta resmi:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                <!-- Gresik -->
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">📍</div>
+                        <h3 class="text-lg font-bold">Gresik</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Jangkauan node fiber optik dan tim teknisi siaga di area Gresik.</p>
+                    </div>
+                    <a href="https://goo.gl/maps/24NdVPr6g7zNKJ539?g_st=awb" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-white hover:bg-rose-600 hover:text-white text-slate-800 font-bold rounded-2xl text-xs text-center transition block shadow-xs border border-slate-200">
+                        Buka Peta Gresik ↗
+                    </a>
+                </div>
+
+                <!-- Sidoarjo -->
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">📍</div>
+                        <h3 class="text-lg font-bold">Sidoarjo</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Cakupan area perumahan dan komersial Sidoarjo.</p>
+                    </div>
+                    <a href="https://goo.gl/maps/QZnw3vt4Sjkbwrq38?g_st=aw" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-white hover:bg-rose-600 hover:text-white text-slate-800 font-bold rounded-2xl text-xs text-center transition block shadow-xs border border-slate-200">
+                        Buka Peta Sidoarjo ↗
+                    </a>
+                </div>
+
+                <!-- Surabaya -->
+                <div class="p-6 rounded-3xl bg-white border-2 border-rose-500 shadow-lg flex flex-col justify-between space-y-6 relative scale-105">
+                    <span class="absolute -top-3 right-4 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Pusat Utama</span>
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">📍</div>
+                        <h3 class="text-lg font-bold">Surabaya</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Pusat kendali operasional dan sebaran titik node berkecepatan tinggi.</p>
+                    </div>
+                    <a href="https://goo.gl/maps/D5J5hEqd8F8XoqTt8?g_st=awb" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-2xl text-xs text-center transition block shadow-md shadow-rose-600/20">
+                        Buka Peta Surabaya ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHECKOUT / TICKET GENERATION VIEW -->
+        <div x-show="activeTab === 'checkout'" class="max-w-md mx-auto bg-slate-50 p-8 rounde               `👤 *Nama:* ${this.customerName}\n` +
                `📱 *No HP:* ${this.customerPhone}\n` +
                `📦 *Paket:* ${this.selectedPackage}\n` +
                `📍 *Alamat:* ${this.customerAddress}\n` +
