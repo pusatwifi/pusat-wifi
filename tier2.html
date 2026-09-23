@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Paket & Layanan - pusatwifi.id</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen">
+
+    <!-- Main Container -->
+    <div class="max-w-6xl mx-auto px-4 py-12" x-data="catalogApp()">
+        
+        <!-- Navigation Back to Tier 1 -->
+        <div class="mb-8 flex items-center justify-between">
+            <a href="index.html" class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Kembali ke Beranda (Tier 1)
+            </a>
+            <span class="text-xs font-semibold px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full">Sistem Katalog Dinamis v2.0</span>
+        </div>
+
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">Pilih Koneksi Internet Terbaik Anda</h1>
+            <p class="text-slate-500 mt-2 max-w-xl mx-auto text-sm md:text-base">Solusi sambungan serat optik tanpa batas untuk rumah, hobi gaming, hingga operasional bisnis skala besar.</p>
+        </header>
+
+        <!-- Control Bar (Pencarian & Filter Kategori) -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mb-10 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <!-- Kotak Pencarian -->
+            <div class="w-full md:w-96 relative">
+                <input type="text" x-model="searchQuery" placeholder="Cari nama paket, kecepatan, atau fitur..." 
+                       class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition">
+                <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+
+            <!-- Tombol Kategori -->
+            <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                <template x-for="cat in categories" :key="cat">
+                    <button @click="selectedCategory = cat"
+                            :class="selectedCategory === cat ? 'bg-indigo-600 text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+                            class="px-4 py-2 rounded-xl text-sm font-medium transition"
+                            x-text="cat">
+                    </button>
+                </template>
+            </div>
+        </div>
+
+        <!-- Product Grid (Kartu Produk Dinamis) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <template x-for="product in filteredProducts" :key="product.id">
+                <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+                    
+                    <!-- Badge Khusus (Jika ada) -->
+                    <div class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-bl-xl tracking-wider" 
+                         x-show="product.badge" x-text="product.badge"></div>
+
+                    <div>
+                        <!-- Header Kartu -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-lg" 
+                                  :class="{
+                                      'bg-emerald-50 text-emerald-600': product.kategori === 'Rumahan',
+                                      'bg-amber-50 text-amber-600': product.kategori === 'Gaming',
+                                      'bg-blue-50 text-blue-600': product.kategori === 'Bisnis'
+                                  }"
+                                  x-text="product.kategori"></span>
+                            <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-lg" x-text="product.kecepatan"></span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 mb-1" x-text="product.nama"></h3>
+                        <p class="text-slate-500 text-sm mb-6" x-text="product.deskripsi"></p>
+
+                        <!-- Fitur Unggulan (List Bullet) -->
+                        <div class="space-y-2 mb-6 border-t border-slate-100 pt-4">
+                            <template x-for="feat in product.fitur" :key="feat">
+                                <div class="flex items-center text-xs text-slate-600">
+                                    <svg class="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span x-text="feat"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Footer Kartu & Harga -->
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-[11px] text-slate-400 block uppercase tracking-wider">Investasi / Bulan</span>
+                            <span class="text-lg font-extrabold text-indigo-600" x-text="product.harga"></span>
+                        </div>
+                        <button @click="openCheckout(product)" class="bg-slate-900 hover:bg-indigo-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium transition shadow-sm">
+                            Pilih Paket
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Tampilan Kosong Jika Tidak Ketemu -->
+        <div x-show="filteredProducts.length === 0" class="text-center py-20">
+            <svg class="w-12 h-12 text-slate-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <p class="text-slate-500 font-medium">Tidak ada paket yang sesuai dengan kriteria pencarian Anda.</p>
+            <button @click="searchQuery = ''; selectedCategory = 'Semua'" class="mt-3 text-xs text-indigo-600 font-semibold hover:underline">Reset Filter</button>
+        </div>
+
+    </div>
+
+    <!-- Gudang Data Kreatif & Logika Sistem -->
+    <script>
+        function catalogApp() {
+            return {
+                searchQuery: '',
+                selectedCategory: 'Semua',
+                categories: ['Semua', 'Rumahan', 'Gaming', 'Bisnis'],
+                
+                // Produk Sampel Turunan Hasil Kreasi AI
+                products: [
+                    { 
+                        id: 1, 
+                        nama: 'Warga Lite', 
+                        kategori: 'Rumahan', 
+                        kecepatan: '20 Mbps', 
+                        harga: 'Rp 135.000', 
+                        badge: 'Hemat',
+                        deskripsi: 'Pilihan paling ekonomis untuk kebutuhan browsing harian, WhatsApp, dan sosmed keluarga kecil.',
+                        fitur: ['Tanpa Batas Kuota (FUP)', 'Cocok s.d 4 Perangkat', 'Gratis Kabel Serat Optik']
+                    },
+                    { 
+                        id: 2, 
+                        nama: 'Keluarga Nyaman', 
+                        kategori: 'Rumahan', 
+                        kecepatan: '50 Mbps', 
+                        harga: 'Rp 260.000', 
+                        badge: 'Terlaris',
+                        deskripsi: 'Ideal untuk rumah modern dengan banyak gadget, streaming video HD, dan work from home.',
+                        fitur: ['Tanpa Batas Kuota (FUP)', 'Stabil untuk Zoom & Meeting', 'Support Smart TV 4K']
+                    },
+                    { 
+                        id: 3, 
+                        nama: 'Beast Gamer Pro', 
+                        kategori: 'Gaming', 
+                        kecepatan: '100 Mbps', 
+                        harga: 'Rp 450.000', 
+                        badge: 'Low Ping',
+                        deskripsi: 'Dirancang khusus bagi gamer kompetitif yang menuntut kestabilan jaringan tanpa lag atau patah-patah.',
+                        fitur: ['Prioritas Jalur Khusus Game', 'Ping Ultra Rendah (< 10ms)', 'Bebas Gangguan Cuaca']
+                    },
+                    { 
+                        id: 4, 
+                        nama: 'Esports Arena Hub', 
+                        kategori: 'Gaming', 
+                        kecepatan: '250 Mbps', 
+                        harga: 'Rp 990.000', 
+                        badge: 'Extreme',
+                        deskripsi: 'Performa maksimal untuk turnamen game, warnet modern, atau *content creator* kelas berat.',
+                        fitur: ['Upload & Download Simetris', 'IP Statis Opsional', 'Garansi SLA 99%']
+                    },
+                    { 
+                        id: 5, 
+                        nama: 'UMKM Go Digital', 
+                        kategori: 'Bisnis', 
+                        kecepatan: '60 Mbps', 
+                        harga: 'Rp 520.000', 
+                        badge: 'Rekomendasi',
+                        deskripsi: 'Koneksi handal untuk operasional toko kelontong, kafe kecil, mesin kasir POS, dan CCTV online.',
+                        fitur: ['Jalur Prioritas Bisnis', 'Bantuan Teknis 24 Jam', 'Stabil untuk Transaksi Kasir']
+                    },
+                    { 
+                        id: 6, 
+                        nama: 'Korporat Enterprise', 
+                        kategori: 'Bisnis', 
+                        kecepatan: '300 Mbps', 
+                        harga: 'Rp 2.200.000', 
+                        badge: 'Pro',
+                        deskripsi: 'Konektivitas kelas enterprise untuk kantor multi-lantai, perusahaan teknologi, dan co-working space.',
+                        fitur: ['IP Publik Dedicated', 'Bandwidth Simetris 1:1', 'Maintenance On-Site Prioritas']
+                    }
+                ],
+
+                // Fungsi Filter Pencarian & Kategori
+                get filteredProducts() {
+                    return this.products.filter(item => {
+                        const query = this.searchQuery.toLowerCase();
+                        const matchesSearch = item.nama.toLowerCase().includes(query) || 
+                                              item.deskripsi.toLowerCase().includes(query) ||
+                                              item.kecepatan.toLowerCase().includes(query);
+                        const matchesCategory = this.selectedCategory === 'Semua' || item.kategori === this.selectedCategory;
+                        return matchesSearch && matchesCategory;
+                    });
+                },
+
+                // Simulasi Aksi Pesan Paket
+                openCheckout(product) {
+                    alert('Anda memilih paket: ' + product.nama + ' (' + product.kecepatan + ') dengan harga ' + product.harga + '/bulan.\n\n(Simulasi: Di sistem nyata, tombol ini akan membawa klien ke halaman pendaftaran atau WhatsApp pemesanan).');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
