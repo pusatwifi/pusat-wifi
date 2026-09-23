@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id" x-data="{ 
+    theme: 'light', 
+    activeTab: 'home',
+    selectedPackage: null,
+    customerName: '',
+    customerPhone: '',
+    customerAddress: '',
+    customerNotes: '',
+    submitted: false,
+    aiChatOpen: false,
+    chatMessage: '',
+    chatLog: [
+        { sender: 'ai', text: 'Halo! Saya Aethel Concierge. Ada yang bisa saya bantu terkait pemilihan kecepatan wifi atau pengecekan area cakupan CBN?' }
+    ],
+    toggleTheme() {
+        this.theme = this.theme === 'light' ? 'dark' : 'light';
+    },
+    sendChat() {
+        if(!this.chatMessage.trim()) return;
+        let userText = this.chatMessage;
+        this.chatLog.push({ sender: 'user', text: userText });
+        this.chatMessage = '';
+        
+        setTimeout(() => {
+            let reply = 'Sistem mendeteksi kebutuhan Anda. Untuk wilayah Surabaya, Sidoarjo, dan Gresik, jaringan CBN tercover penuh dengan kecepatan optimal.';
+            if(userText.toLowerCase().includes('area') || userText.toLowerCase().includes('cakupan') || userText.toLowerCase().includes('lokasi')) {
+                reply = 'Kami melayani 3 wilayah utama mitra CBN: Surabaya, Sidoarjo, dan Gresik. Anda bisa mengecek titik detailnya di menu Cakupan Area.';
+            } else if(userText.toLowerCase().includes('murah') || userText.toLowerCase().includes('starter')) {
+                reply = 'Paket Starter Home (20 Mbps) seharga Rp250.000 sangat pas untuk penggunaan harian tanpa batasan kuota.';
+            }
+            this.chatLog.push({ sender: 'ai', text: reply });
+        }, 800);
+    },
+    getTelegramMessage() {
+        return `🔔 *TIKET PEMASANGAN BARU (AETHEL CBN)*\n\n` +
+               `👤 *Nama:* ${this.customerName}\n` +
+               `📱 *No HP:* ${this.customerPhone}\n` +
+               `📦 *Paket:* ${this.selectedPackage}\n` +
+               `📍 *Alamat:* ${this.customerAddress}\n` +
+               `📝 *Catatan:* ${this.customerNotes || '-'}\n\n` +
+               `_Status: Menunggu Konfirmasi Lapangan_`;
+    }
+}" :class="theme === 'dark' ? 'dark bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'" class="transition-colors duration-300">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Wifi Indonesia — Aethel Autonomous Architecture</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        macaron: {
+                            pink: '#ffd1dc',
+                            yellow: '#fdfd96',
+                            mint: '#b0e57c',
+                            lavender: '#e6e6fa',
+                            blue: '#aec6cf'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-sans min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="w-full border-b border-slate-200 dark:border-slate-800 backdrop-blur-md sticky top-0 z-50 bg-white/80 dark:bg-slate-950/80">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Procedural SVG Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer group" @click="activeTab = 'home'">
+                <div class="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-macaron-yellow group-hover:scale-105 transition">
+                    <svg class="w-6 h-6 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12.55a11 11 0 0 1 14.1-1"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-bold text-base tracking-tight leading-none">Pusat Wifi</h1>
+                    <span class="text-[10px] font-medium text-slate-500 dark:text-slate-400 tracking-wider uppercase">Indonesia Autonomous</span>
+                </div>
+            </div>
+
+            <!-- Nav Links & Controls -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <button @click="activeTab = 'home'" :class="activeTab === 'home' ? 'text-indigo-600 dark:text-macaron-yellow font-bold' : 'text-slate-600 dark:text-slate-400'" class="text-xs hover:text-indigo-600 transition hidden sm:inline-block">Beranda</button>
+                <button @click="activeTab = 'coverage'" :class="activeTab === 'coverage' ? 'text-indigo-600 dark:text-macaron-yellow font-bold' : 'text-slate-600 dark:text-slate-400'" class="text-xs hover:text-indigo-600 transition">Cakupan Area (CBN)</button>
+                
+                <button @click="aiChatOpen = !aiChatOpen" class="px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 text-xs font-semibold hover:opacity-80 transition flex items-center space-x-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>AI Concierge</span>
+                </button>
+                <button @click="toggleTheme()" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition text-xs">
+                    <span x-show="theme === 'light'">🌙</span>
+                    <span x-show="theme === 'dark'">☀️</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 py-10 flex-grow w-full">
+
+        <!-- HOME / PACKAGE VIEW -->
+        <div x-show="activeTab === 'home'" class="space-y-12">
+            <!-- Hero Section -->
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-macaron-yellow rounded-full border border-indigo-100 dark:border-indigo-900">
+                    <span>⚡ Mitra Resmi CBN • Arsitektur Hidup Aethel</span>
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">Internet Rumah Cepat, Tanpa Gesekan Digital.</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+                    Sistem otonom mengelola seluruh pengalaman digital Anda. Pilih paket terbaik, cek wilayah cakupan, konfirmasi instan, dan teknisi siap meluncur.
+                </p>
+                <div class="pt-2 flex justify-center gap-3">
+                    <button @click="activeTab = 'coverage'" class="px-5 py-2.5 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-xs hover:opacity-90 transition">
+                        Cek Area Cakupan CBN
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paket Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                <!-- Paket 1 -->
+                <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between hover:border-indigo-500 transition group">
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-macaron-mint">Starter Home</div>
+                        <div class="text-3xl font-extrabold mt-3">Rp250k <span class="text-xs font-normal text-slate-500">/bulan</span></div>
+                        <p class="text-xs text-slate-500 mt-1">Ideal untuk streaming & browsing harian keluarga kecil.</p>
+                        <ul class="mt-6 space-y-3 text-xs text-slate-600 dark:text-slate-300">
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Kecepatan hingga 20 Mbps</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Unlimited Tanpa FUP (CBN Network)</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Gratis Perangkat & Instalasi</span></li>
+                        </ul>
+                    </div>
+                    <button @click="selectedPackage = 'Starter Home (20 Mbps - Rp250k)'; activeTab = 'checkout'" class="mt-8 w-full py-3 px-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-semibold rounded-2xl text-xs hover:opacity-90 transition">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+
+                <!-- Paket 2 (Featured) -->
+                <div class="p-6 rounded-3xl border-2 border-indigo-500 bg-white dark:bg-slate-900 shadow-xl flex flex-col justify-between relative group scale-105">
+                    <span class="absolute -top-3 right-5 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">Paling Laris</span>
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Family Pro</div>
+                        <div class="text-3xl font-extrabold mt-3">Rp350k <span class="text-xs font-normal text-slate-500">/bulan</span></div>
+                        <p class="text-xs text-slate-500 mt-1">Sempurna untuk multi-perangkat & aktivitas berat.</p>
+                        <ul class="mt-6 space-y-3 text-xs text-slate-600 dark:text-slate-300">
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Kecepatan hingga 50 Mbps</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Unlimited Tanpa FUP (CBN Network)</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Prioritas Layanan Lapangan</span></li>
+                        </ul>
+                    </div>
+                    <button @click="selectedPackage = 'Family Pro (50 Mbps - Rp350k)'; activeTab = 'checkout'" class="mt-8 w-full py-3 px-4 bg-indigo-600 text-white font-semibold rounded-2xl text-xs hover:bg-indigo-700 transition shadow-lg shadow-indigo-600/20">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between hover:border-indigo-500 transition group">
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-macaron-mint">Business Elite</div>
+                        <div class="text-3xl font-extrabold mt-3">Rp600k <span class="text-xs font-normal text-slate-500">/bulan</span></div>
+                        <p class="text-xs text-slate-500 mt-1">Performa maksimal untuk kantor, cafe & gamer pro.</p>
+                        <ul class="mt-6 space-y-3 text-xs text-slate-600 dark:text-slate-300">
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Kecepatan hingga 100 Mbps</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Dedicated Bandwidth Ratio</span></li>
+                            <li class="flex items-center space-x-2"><span>✓</span> <span>Respon Teknis Kilat 2 Jam</span></li>
+                        </ul>
+                    </div>
+                    <button @click="selectedPackage = 'Business Elite (100 Mbps - Rp600k)'; activeTab = 'checkout'" class="mt-8 w-full py-3 px-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-semibold rounded-2xl text-xs hover:opacity-90 transition">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- COVERAGE AREA VIEW (CBN NETWORK) -->
+        <div x-show="activeTab === 'coverage'" class="max-w-4xl mx-auto space-y-8">
+            <div class="text-center space-y-3">
+                <button @click="activeTab = 'home'" class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold inline-block mb-1">← Kembali ke Beranda</button>
+                <h3 class="text-3xl font-extrabold tracking-tight">Cakupan Wilayah Jaringan (CBN)</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm max-w-xl mx-auto">
+                    Pusat Wifi Indonesia bermitra langsung dengan infrastruktur fiber optik CBN. Cek titik cakupan operasional kami di bawah ini:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                <!-- Gresik -->
+                <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">📍</div>
+                        <h4 class="text-lg font-bold">Gresik</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Jangkauan node fiber optik dan tim teknisi siaga di area Gresik dan sekitarnya.</p>
+                    </div>
+                    <a href="https://goo.gl/maps/24NdVPr6g7zNKJ539?g_st=awb" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 text-slate-800 dark:text-slate-200 font-semibold rounded-2xl text-xs text-center transition block">
+                        Buka Peta Gresik ↗
+                    </a>
+                </div>
+
+                <!-- Sidoarjo -->
+                <div class="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold">📍</div>
+                        <h4 class="text-lg font-bold">Sidoarjo</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Cakupan area perumahan dan komersial Sidoarjo dengan rute sambungan cepat.</p>
+                    </div>
+                    <a href="https://goo.gl/maps/QZnw3vt4Sjkbwrq38?g_st=aw" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 text-slate-800 dark:text-slate-200 font-semibold rounded-2xl text-xs text-center transition block">
+                        Buka Peta Sidoarjo ↗
+                    </a>
+                </div>
+
+                <!-- Surabaya -->
+                <div class="p-6 rounded-3xl border-2 border-indigo-500 bg-white dark:bg-slate-900 shadow-xl flex flex-col justify-between space-y-6 relative scale-105">
+                    <span class="absolute -top-3 right-4 bg-indigo-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Pusat Utama</span>
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold">📍</div>
+                        <h4 class="text-lg font-bold">Surabaya</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Pusat kendali operasional dan sebaran titik node berkecepatan tinggi.</p>
+                    </div>
+                    <a href="https://goo.gl/maps/D5J5hEqd8F8XoqTt8?g_st=awb" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-2xl text-xs text-center transition block shadow-lg shadow-indigo-600/20">
+                        Buka Peta Surabaya ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHECKOUT / TICKET GENERATION VIEW -->
+        <div x-show="activeTab === 'checkout'" class="max-w-lg mx-auto bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div>
+                    <h3 class="text-lg font-bold">Konfirmasi Pemasangan</h3>
+                    <p class="text-xs text-indigo-600 dark:text-indigo-400 font-medium mt-0.5" x-text="selectedPackage"></p>
+                </div>
+                <button @click="activeTab = 'home'" class="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-slate-200">✕ Batal</button>
+            </div>
+
+            <form @submit.prevent="submitted = true" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">Nama Lengkap</label>
+                    <input type="text" x-model="customerName" required class="w-full px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-xs focus:outline-none focus:border-indigo-500 transition" placeholder="Budi Santoso">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">Nomor WhatsApp Aktif</label>
+                    <input type="tel" x-model="customerPhone" required class="w-full px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-xs focus:outline-none focus:border-indigo-500 transition" placeholder="08123456789">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">Alamat Pemasangan (Surabaya / Sidoarjo / Gresik)</label>
+                    <textarea x-model="customerAddress" required rows="3" class="w-full px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-xs focus:outline-none focus:border-indigo-500 transition" placeholder="Jl. Merdeka No. 45, Surabaya"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">Catatan Khusus untuk Teknisi (Opsional)</label>
+                    <input type="text" x-model="customerNotes" class="w-full px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-xs focus:outline-none focus:border-indigo-500 transition" placeholder="Misal: Pasang di lantai 2">
+                </div>
+                <button type="submit" class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-2xl text-xs transition shadow-lg shadow-indigo-600/20">
+                    Kirim Tiket ke Sistem Lapangan
+                </button>
+            </form>
+
+            <!-- Success State / Dispatch Generated -->
+            <div x-show="submitted" class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+                <div class="p-4 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-center space-y-1">
+                    <div class="text-emerald-600 dark:text-e
