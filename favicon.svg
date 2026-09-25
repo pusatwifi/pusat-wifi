@@ -1,88 +1,37 @@
-
-<svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 512 512"
-     width="512"
-     height="512">
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Latar belakang putih rounded agar tidak menjadi hitam saat browser dalam Mode Gelap / Dark Mode -->
+  <rect width="512" height="512" rx="128" fill="#FFFFFF"/>
+  
   <defs>
-    <!-- Outer arc: pastel purple, pink, blue -->
-    <linearGradient id="wifi1"
-                    x1="0%" y1="0%"
-                    x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F3B6FF"/>
-      <stop offset="50%" stop-color="#C6B5FF"/>
-      <stop offset="100%" stop-color="#82C8FF"/>
+    <!-- Gradasi Pelangi Pastel -->
+    <linearGradient id="arcTop" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C3DAFE" />
+      <stop offset="50%" stop-color="#E9D8FD" />
+      <stop offset="100%" stop-color="#FED7E2" />
     </linearGradient>
-
-    <!-- Middle arc: cyan, mint -->
-    <linearGradient id="wifi2"
-                    x1="0%" y1="0%"
-                    x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#78DFFF"/>
-      <stop offset="50%" stop-color="#67D9E8"/>
-      <stop offset="100%" stop-color="#8BE8C8"/>
+    <linearGradient id="arcMid" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B2F5EA" />
+      <stop offset="100%" stop-color="#BEE3F8" />
     </linearGradient>
-
-    <!-- Inner arc: yellow, peach, pink -->
-    <linearGradient id="wifi3"
-                    x1="0%" y1="0%"
-                    x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFE58A"/>
-      <stop offset="50%" stop-color="#FFD77A"/>
-      <stop offset="100%" stop-color="#FF9DB8"/>
+    <linearGradient id="arcLow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FBD38D" />
+      <stop offset="100%" stop-color="#FEB2B2" />
     </linearGradient>
-
-    <!-- Center dot -->
-    <linearGradient id="dot"
-                    x1="0%" y1="0%"
-                    x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFC2E8"/>
-      <stop offset="50%" stop-color="#F59BD6"/>
-      <stop offset="100%" stop-color="#A99AFF"/>
+    <linearGradient id="dotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9D8FD" />
+      <stop offset="100%" stop-color="#FEB2B2" />
     </linearGradient>
-
-    <!-- Soft glow -->
-    <filter id="softGlow"
-            x="-30%" y="-30%"
-            width="160%" height="160%">
-      <feGaussianBlur stdDeviation="5"
-                      result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
-  <!-- Transparent background: no background rectangle -->
-
-  <!-- WiFi signal -->
-  <g fill="none"
-     stroke-linecap="round"
-     stroke-width="42"
-     filter="url(#softGlow)">
-
-    <!-- Outer arc -->
-    <path d="M105 185
-             C170 120 342 120 407 185"
-          stroke="url(#wifi1)"/>
-
-    <!-- Middle arc -->
-    <path d="M145 257
-             C193 209 319 209 367 257"
-          stroke="url(#wifi2)"/>
-
-    <!-- Inner arc -->
-    <path d="M192 328
-             C218 303 294 303 320 328"
-          stroke="url(#wifi3)"/>
+  <!-- Ikon WiFi Pastel -->
+  <g transform="translate(0, 20)">
+    <!-- Lengkungan Atas -->
+    <path d="M 80,180 A 200,200 0 0,1 432,180" fill="none" stroke="url(#arcTop)" stroke-width="48" stroke-linecap="round"/>
+    <!-- Lengkungan Tengah -->
+    <path d="M 136,246 A 136,136 0 0,1 376,246" fill="none" stroke="url(#arcMid)" stroke-width="46" stroke-linecap="round"/>
+    <!-- Lengkungan Bawah -->
+    <path d="M 192,312 A 72,72 0 0,1 320,312" fill="none" stroke="url(#arcLow)" stroke-width="44" stroke-linecap="round"/>
+    <!-- Titik Bawah -->
+    <circle cx="256" cy="380" r="26" fill="url(#dotGrad)"/>
   </g>
-
-  <!-- Center dot -->
-  <circle cx="256"
-          cy="400"
-          r="31"
-          fill="url(#dot)"
-          filter="url(#softGlow)"/>
-
 </svg>
