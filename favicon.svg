@@ -1,37 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Latar belakang putih rounded agar tidak menjadi hitam saat browser dalam Mode Gelap / Dark Mode -->
-  <rect width="512" height="512" rx="128" fill="#FFFFFF"/>
-  
   <defs>
-    <!-- Gradasi Pelangi Pastel -->
-    <linearGradient id="arcTop" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#C3DAFE" />
-      <stop offset="50%" stop-color="#E9D8FD" />
-      <stop offset="100%" stop-color="#FED7E2" />
+    <!-- 1. Gradasi Lengkungan Atas: Ungu/Pink Soft -> Biru Soft -->
+    <linearGradient id="wifiTopGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E29BF7"/>
+      <stop offset="50%" stop-color="#B89BFF"/>
+      <stop offset="100%" stop-color="#72B5FF"/>
     </linearGradient>
-    <linearGradient id="arcMid" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#B2F5EA" />
-      <stop offset="100%" stop-color="#BEE3F8" />
+
+    <!-- 2. Gradasi Lengkungan Tengah: Biru Muda Soft -> Hijau Mint/Cyan Soft -->
+    <linearGradient id="wifiMidGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64D2FF"/>
+      <stop offset="100%" stop-color="#6FE8C8"/>
     </linearGradient>
-    <linearGradient id="arcLow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#FBD38D" />
-      <stop offset="100%" stop-color="#FEB2B2" />
+
+    <!-- 3. Gradasi Lengkungan Bawah: Kuning Soft -> Pink/Koral Soft -->
+    <linearGradient id="wifiLowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFE072"/>
+      <stop offset="100%" stop-color="#FF8EA0"/>
     </linearGradient>
-    <linearGradient id="dotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E9D8FD" />
-      <stop offset="100%" stop-color="#FEB2B2" />
+
+    <!-- 4. Gradasi Titik Bawah: Pink Soft -> Ungu Lavender Soft -->
+    <linearGradient id="wifiDotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9EE2"/>
+      <stop offset="100%" stop-color="#9E9BFF"/>
     </linearGradient>
   </defs>
 
-  <!-- Ikon WiFi Pastel -->
-  <g transform="translate(0, 20)">
-    <!-- Lengkungan Atas -->
-    <path d="M 80,180 A 200,200 0 0,1 432,180" fill="none" stroke="url(#arcTop)" stroke-width="48" stroke-linecap="round"/>
-    <!-- Lengkungan Tengah -->
-    <path d="M 136,246 A 136,136 0 0,1 376,246" fill="none" stroke="url(#arcMid)" stroke-width="46" stroke-linecap="round"/>
-    <!-- Lengkungan Bawah -->
-    <path d="M 192,312 A 72,72 0 0,1 320,312" fill="none" stroke="url(#arcLow)" stroke-width="44" stroke-linecap="round"/>
-    <!-- Titik Bawah -->
-    <circle cx="256" cy="380" r="26" fill="url(#dotGrad)"/>
+  <!-- Tanpa Rect Latar Belakang (Transparan & Bersih) -->
+  <g transform="translate(0, 15)">
+    <!-- Lengkungan 1 (Atas / Terbesar) -->
+    <path d="M 83,230 A 200,200 0 0,1 429,230" fill="none" stroke="url(#wifiTopGrad)" stroke-width="54" stroke-linecap="round"/>
+    
+    <!-- Lengkungan 2 (Tengah) -->
+    <path d="M 135,265 A 140,140 0 0,1 377,265" fill="none" stroke="url(#wifiMidGrad)" stroke-width="48" stroke-linecap="round"/>
+    
+    <!-- Lengkungan 3 (Bawah) -->
+    <path d="M 187,298 A 80,80 0 0,1 325,298" fill="none" stroke="url(#wifiLowGrad)" stroke-width="44" stroke-linecap="round"/>
+    
+    <!-- Titik 4 (Bawah) -->
+    <circle cx="256" cy="378" r="34" fill="url(#wifiDotGrad)"/>
   </g>
 </svg>
